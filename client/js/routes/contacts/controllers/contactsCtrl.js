@@ -1,7 +1,9 @@
 /* global angular */
 (function () {
   'use strict'
-  function contactsCtrl () {
+  function contactsCtrl ($rootScope) {
+    //OJO SOLO PARA DESARROLLO FRONT!
+    $rootScope.logged = true
     console.log('contactsCtrl Loaded')
   }
   angular

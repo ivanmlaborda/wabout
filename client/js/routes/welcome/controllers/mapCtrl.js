@@ -1,8 +1,12 @@
 /* global angular */
 (function () {
   'use strict'
-  function mapCtrl () {
+  function mapCtrl ($rootScope) {
     console.log('mapCtrl Loaded')
+
+    //OJO SOLO PARA DESARROLLO FRONT!
+    $rootScope.logged = false
+
     let map = L.map('map', {
       center: [41.610, 0.630],
       zoom: 15

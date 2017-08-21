@@ -14,8 +14,14 @@
 
   <div class="main-container">
 
-      <!-- ng-view -->
-      <ng-view></ng-view>
+    <!-- ng-include -->
+    <div ng-include='"js/includes/notLoggedNav/template.html"' ng-hide="logged"></div>
+    <div ng-include='"js/includes/loggedNav/template.html"' ng-show="logged"></div>
+
+    <!-- ng-view -->
+    <ng-view>
+
+    </ng-view>
   </div>
 
   <!-- jQuery -->

@@ -1,7 +1,11 @@
 /* global angular */
 (function () {
   'use strict'
-  function mapExploreCtrl () {
+  function mapExploreCtrl ($rootScope) {
+
+    //OJO SOLO PARA DESARROLLO FRONT
+    $rootScope.logged = true
+
     console.log('mapExploreCtrl Loaded')
     let map = L.map('map', {
       center: [41.610, 0.630],
