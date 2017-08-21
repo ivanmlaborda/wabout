@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-  angular.module('Locator', ['ngRoute'])
+  angular.module('Wabout', ['ngRoute'])
   .run(function () {
     console.log('Angular loaded')
   })

@@ -1,8 +1,8 @@
 /* global angular */
 (function () {
   'use strict'
-  function mapCtrl () {
-    console.log('mapCtrl Loaded')
+  function mapExploreCtrl () {
+    console.log('mapExploreCtrl Loaded')
     let map = L.map('map', {
       center: [41.610, 0.630],
       zoom: 15
@@ -22,5 +22,5 @@
   }
   angular
     .module('Wabout')
-    .controller('mapCtrl', mapCtrl)
+    .controller('mapExploreCtrl', mapExploreCtrl)
 })()

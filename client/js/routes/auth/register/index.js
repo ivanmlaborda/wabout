@@ -4,8 +4,8 @@
   angular.module('Wabout')
   .config(function ($routeProvider) {
     $routeProvider
-    .when('/', {
-      templateUrl: 'js/routes/welcome/template.html'
+    .when('/auth/register', {
+      templateUrl: 'js/routes/auth/register/template.html'
     })
   })
 

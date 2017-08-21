@@ -4,8 +4,8 @@
   angular.module('Wabout')
   .config(function ($routeProvider) {
     $routeProvider
-    .when('/', {
-      templateUrl: 'js/routes/welcome/template.html'
+    .when('/explore', {
+      templateUrl: 'js/routes/explore/template.html'
     })
   })
 
