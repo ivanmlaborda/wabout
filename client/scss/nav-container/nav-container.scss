@@ -23,11 +23,24 @@
           color: $pr-red;
           background-color: white;
           font-weight: bold;
-          font-size: 15px;
+          font-size: 16px;
         }
         a:hover {
           color: white;
           background-color: $pr-red;
+        }
+      }
+    }
+  }
+
+  .nav-bar-logged {
+    ul {
+      li {
+        a {
+          width: 55px;
+          font-size: 16px;
+        }
+        a:hover {
         }
       }
     }

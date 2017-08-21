@@ -29,11 +29,15 @@
   color: #F78F20;
   background-color: white;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
 }
 .nav-container .nav-bar ul li a:hover {
   color: white;
   background-color: #F78F20;
+}
+.nav-container .nav-bar-logged ul li a {
+  width: 55px;
+  font-size: 16px;
 }
 
 /* --------------------- map-container --------------------------------*/
