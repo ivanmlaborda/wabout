@@ -1,0 +1,49 @@
+/* --------------------- variables --------------------------------*/
+/* --------------------- main-container --------------------------------*/
+.main-container {
+  height: 100vh;
+  background-color: white;
+}
+
+/* --------------------- common --------------------------------*/
+/* --------------------- nav-container --------------------------------*/
+.nav-container .top-bar {
+  width: 100%;
+  background-color: #F78F20;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 3px 5px;
+}
+.nav-container .nav-bar {
+  border-bottom: 8px solid white;
+}
+.nav-container .nav-bar ul {
+  background-color: #F78F20;
+  padding: 5px 2px;
+}
+.nav-container .nav-bar ul li a {
+  padding: 3px 6px;
+  margin: 5px 3px;
+  border: 2px solid white;
+  color: #F78F20;
+  background-color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+.nav-container .nav-bar ul li a:hover {
+  color: white;
+  background-color: #F78F20;
+}
+
+/* --------------------- map-container --------------------------------*/
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+.map-container .map {
+  height: 100%;
+  width: 100%;
+}
+
+/* --------------------- welcome --------------------------------*/
