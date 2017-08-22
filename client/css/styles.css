@@ -55,7 +55,7 @@
   .nav-container .nav-bar-logged ul li a {
     width: 40px;
     font-size: 16px;
-    margin: 0 10px; }
+    margin: 0 6px; }
 
 /* --------------------- map-container --------------------------------*/
 .map-container {
@@ -96,7 +96,9 @@
     border: 1px solid #D9DADE;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55); }
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    max-width: 450px;
+    margin: 0 auto; }
   .login-container button {
     font-weight: bold; }
 
@@ -108,7 +110,9 @@
     border: 1px solid #D9DADE;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55); }
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    max-width: 450px;
+    margin: 0 auto; }
   .register-container button {
     font-weight: bold; }
 
@@ -125,6 +129,22 @@
     margin-top: 55px;
     color: #65727A; }
   .contacts-container form button {
+    font-weight: bold;
+    color: #65727A; }
+
+/* --------------------- groups --------------------------------*/
+.groups-container {
+  margin-top: 0;
+  font-weight: 500; }
+  .groups-container .panel {
+    border: 1px solid #D9DADE; }
+  .groups-container h2 {
+    margin-top: 50px;
+    color: #65727A; }
+  .groups-container h4 {
+    margin-top: 55px;
+    color: #65727A; }
+  .groups-container form button {
     font-weight: bold;
     color: #65727A; }
 

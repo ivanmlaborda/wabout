@@ -7,7 +7,8 @@
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
     "build:scss": "node-sass src/scss/styles.scss client/css/styles.css",
-    "build:scss:watch": "node-sass src/scss/styles.scss client/css/styles.css --watch"
+    "build:scss:watch": "node-sass src/scss/styles.scss client/css/styles.css --watch",
+    "postinstall": "node ./node_modules/bower/bin/bower install"
   },
   "keywords": [],
   "author": "",
