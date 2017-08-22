@@ -4,7 +4,7 @@ const path = require('path')
 const app = express()
 const pathPublic = path.join(process.cwd(), 'client')
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 // const routerMap = require('./routes/map')
 
