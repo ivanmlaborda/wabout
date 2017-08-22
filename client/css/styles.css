@@ -74,7 +74,7 @@ html, body {
 
 /* --------------------- footer-container --------------------------------*/
 .footer-container {
-  height: 8%;
+  height: 12%;
   background-color: #F03C02; }
   .footer-container footer a {
     text-align: center;
@@ -108,7 +108,7 @@ html, body {
 
 /* --------------------- map-container --------------------------------*/
 .map-container {
-  height: 84%;
+  height: 80%;
   width: 100%;
   position: relative; }
   .map-container .map {
@@ -139,7 +139,7 @@ html, body {
 /* --------------------- welcome --------------------------------*/
 /* --------------------- login --------------------------------*/
 .login-container {
-  height: 84%;
+  height: 80%;
   background-color: #F5F4E4;
   font-weight: 500; }
   .login-container .panel {
@@ -154,7 +154,7 @@ html, body {
 
 /* --------------------- register --------------------------------*/
 .register-container {
-  height: 84%;
+  height: 80%;
   background-color: #F5F4E4;
   font-weight: 500; }
   .register-container .panel {
@@ -169,7 +169,7 @@ html, body {
 
 /* --------------------- contacts --------------------------------*/
 .contacts-container {
-  height: 84%;
+  height: 80%;
   overflow: scroll;
   background-color: #F5F4E4;
   margin-top: 0;
@@ -188,7 +188,7 @@ html, body {
 
 /* --------------------- groups --------------------------------*/
 .groups-container {
-  height: 84%;
+  height: 80%;
   overflow: scroll;
   background-color: #F5F4E4;
   margin-top: 0;
@@ -207,7 +207,7 @@ html, body {
 
 /* --------------------- settings --------------------------------*/
 .settings-container {
-  height: 84%;
+  height: 80%;
   overflow: scroll;
   background-color: #F5F4E4;
   margin-top: 0;
