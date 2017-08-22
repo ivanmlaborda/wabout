@@ -1,6 +1,9 @@
 @import '../variables/setVariables';
 
 .groups-container {
+    height: 84%;
+    overflow: scroll;
+    background-color: $pr-white-broke;
   .panel {
     border: 1px solid $pr-light-gray;
     // -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);

@@ -1,41 +1,23 @@
 @import '../variables/setVariables';
 
-.nav-container {
-  height: 14%;
+.header-container {
+  height: 8%;
   background-color: $pr-orange-red;
-  border-bottom: 8px solid white;
-  .top-bar {
+  // border-bottom: 8px solid white;
+  .header-bar {
     width: 100%;
     color: white;
     font-weight: bold;
     font-size: 16px;
     padding: 5px 5px;
-    .logo {
-      font-family: 'Pacifico';
-      font-size: 18px;
-      font-weight: lighter;
-      margin-left: 5px;
-      text-shadow: 0px 1px 1px #4d4d4d;
-    }
-    .userTag {
-      font-size: 16px;
-      margin-right: 5px;
-      margin-top: 1px;
-      text-shadow: 0px 1px 1px #4d4d4d;
-      i {
-        margin: 0 5px;
-        color: $pr-green-signal;
-      }
-    }
-  }
-  .nav-bar {
     ul {
       padding: 5px 2px;
       li {
         a {
+          // width: 40px;
           padding: 3px 6px;
           margin: 5px 5px 0px 5px;
-          border: 2px solid white;
+          // border: 2px solid white;
           color: $pr-orange-red;
           background-color: white;
           font-size: 14px;
@@ -53,21 +35,36 @@
           background-color: $pr-orange-red;
           text-shadow: 0px 1px 1px #4d4d4d;
         }
-      }
-    }
-  }
-  .nav-bar-logged {
-    ul {
-      li {
-        a {
-          width: 40px;
-          font-size: 16px;
-          margin: 0 6px;
+        a.logo {
+          font-family: 'Pacifico';
+          font-weight: lighter;
+          margin-left: 5px;
+          text-shadow: 0px 1px 1px #4d4d4d;
+          border: 2px solid $pr-orange-red;
+          color: white;
+          background-color: $pr-orange-red;
+          box-shadow: none;
         }
-        a:hover {
+        a.userTag {
+          font-weight: lighter;
+          margin-right: 5px;
+          text-shadow: 0px 1px 1px #4d4d4d;
+          border: 2px solid $pr-orange-red;
+          color: white;
+          background-color: $pr-orange-red;
+          box-shadow: none;
+          i {
+            margin: 0 5px;
+            color: $pr-green-signal;
+          }
         }
       }
-    }
-  }
 
+    }
+  }
+  .header-bar-logged {
+    a {
+      width: auto;
+    }
+  }
 }

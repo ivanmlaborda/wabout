@@ -2,7 +2,7 @@
 /* --------------------- main-container --------------------------------*/
 .main-container {
   height: 100%;
-  background-color: #F5F4E4;
+  background-color: #F03C02;
   font-family: 'Quicksand';
   color: #2C3230; }
 
@@ -10,59 +10,95 @@
 html, body {
   height: 100%; }
 
-/* --------------------- nav-container --------------------------------*/
-.nav-container {
-  height: 14%;
-  background-color: #F03C02;
-  border-bottom: 8px solid white; }
-  .nav-container .top-bar {
+/* --------------------- header-container --------------------------------*/
+.header-container {
+  height: 8%;
+  background-color: #F03C02; }
+  .header-container .header-bar {
     width: 100%;
     color: white;
     font-weight: bold;
     font-size: 16px;
     padding: 5px 5px; }
-    .nav-container .top-bar .logo {
-      font-family: 'Pacifico';
-      font-size: 18px;
-      font-weight: lighter;
-      margin-left: 5px;
-      text-shadow: 0px 1px 1px #4d4d4d; }
-    .nav-container .top-bar .userTag {
-      font-size: 16px;
-      margin-right: 5px;
-      margin-top: 1px;
-      text-shadow: 0px 1px 1px #4d4d4d; }
-      .nav-container .top-bar .userTag i {
-        margin: 0 5px;
-        color: #BEED80; }
-  .nav-container .nav-bar ul {
-    padding: 5px 2px; }
-    .nav-container .nav-bar ul li a {
-      padding: 3px 6px;
-      margin: 5px 5px 0px 5px;
-      border: 2px solid white;
-      color: #F03C02;
-      background-color: white;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-      -webkit-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
-      box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75); }
-      .nav-container .nav-bar ul li a i {
-        font-size: 16px; }
-    .nav-container .nav-bar ul li a:hover {
-      color: white;
-      background-color: #F03C02;
-      text-shadow: 0px 1px 1px #4d4d4d; }
-  .nav-container .nav-bar-logged ul li a {
+    .header-container .header-bar ul {
+      padding: 5px 2px; }
+      .header-container .header-bar ul li a {
+        padding: 3px 6px;
+        margin: 5px 5px 0px 5px;
+        color: #F03C02;
+        background-color: white;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        -webkit-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+        box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75); }
+        .header-container .header-bar ul li a i {
+          font-size: 16px; }
+      .header-container .header-bar ul li a:hover {
+        color: white;
+        background-color: #F03C02;
+        text-shadow: 0px 1px 1px #4d4d4d; }
+      .header-container .header-bar ul li a.logo {
+        font-family: 'Pacifico';
+        font-weight: lighter;
+        margin-left: 5px;
+        text-shadow: 0px 1px 1px #4d4d4d;
+        border: 2px solid #F03C02;
+        color: white;
+        background-color: #F03C02;
+        box-shadow: none; }
+      .header-container .header-bar ul li a.userTag {
+        font-weight: lighter;
+        margin-right: 5px;
+        text-shadow: 0px 1px 1px #4d4d4d;
+        border: 2px solid #F03C02;
+        color: white;
+        background-color: #F03C02;
+        box-shadow: none; }
+        .header-container .header-bar ul li a.userTag i {
+          margin: 0 5px;
+          color: #BEED80; }
+  .header-container .header-bar-logged a {
+    width: auto; }
+
+/* --------------------- footer-container --------------------------------*/
+.footer-container {
+  height: 8%;
+  background-color: #F03C02; }
+  .footer-container footer a {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    display: block; }
+  .footer-container footer p {
+    font-size: 12px;
+    color: white; }
+  .footer-container .footer-bar ul li a {
+    padding: 5px 7px;
+    margin: 5px 5px 0px 5px;
+    color: #F03C02;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75); }
+    .footer-container .footer-bar ul li a i {
+      font-size: 16px; }
+  .footer-container .footer-bar ul li a:hover {
+    color: white;
+    background-color: #F03C02;
+    text-shadow: 0px 1px 1px #4d4d4d; }
+  .footer-container .footer-bar .footer-bar-logged ul li a {
     width: 40px;
     font-size: 16px;
-    margin: 0 6px; }
+    margin: 10px 10px; }
 
 /* --------------------- map-container --------------------------------*/
 .map-container {
-  height: 86%;
+  height: 84%;
   width: 100%;
   position: relative; }
   .map-container .map {
@@ -93,7 +129,8 @@ html, body {
 /* --------------------- welcome --------------------------------*/
 /* --------------------- login --------------------------------*/
 .login-container {
-  margin-top: 100px;
+  height: 84%;
+  background-color: #F5F4E4;
   font-weight: 500; }
   .login-container .panel {
     border: 1px solid #D9DADE;
@@ -107,7 +144,8 @@ html, body {
 
 /* --------------------- register --------------------------------*/
 .register-container {
-  margin-top: 100px;
+  height: 84%;
+  background-color: #F5F4E4;
   font-weight: 500; }
   .register-container .panel {
     border: 1px solid #D9DADE;
@@ -121,6 +159,9 @@ html, body {
 
 /* --------------------- contacts --------------------------------*/
 .contacts-container {
+  height: 84%;
+  overflow: scroll;
+  background-color: #F5F4E4;
   margin-top: 0;
   font-weight: 500; }
   .contacts-container .panel {
@@ -137,6 +178,9 @@ html, body {
 
 /* --------------------- groups --------------------------------*/
 .groups-container {
+  height: 84%;
+  overflow: scroll;
+  background-color: #F5F4E4;
   margin-top: 0;
   font-weight: 500; }
   .groups-container .panel {
@@ -153,6 +197,9 @@ html, body {
 
 /* --------------------- settings --------------------------------*/
 .settings-container {
+  height: 84%;
+  overflow: scroll;
+  background-color: #F5F4E4;
   margin-top: 0;
   font-weight: 500; }
   .settings-container .panel {

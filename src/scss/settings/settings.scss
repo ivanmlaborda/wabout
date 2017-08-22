@@ -1,6 +1,9 @@
 @import '../variables/setVariables';
 
 .settings-container {
+  height: 84%;
+  overflow: scroll;
+  background-color: $pr-white-broke;
   .panel {
     border: 1px solid $pr-light-gray;
 

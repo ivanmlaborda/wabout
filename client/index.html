@@ -16,14 +16,18 @@
 
   <div class="main-container">
 
-    <!-- ng-include -->
-    <div ng-include='"js/includes/notLoggedNav/template.html"' ng-hide="logged"></div>
-    <div ng-include='"js/includes/loggedNav/template.html"' ng-show="logged"></div>
+    <!-- ng-include header -->
+    <div ng-include='"js/includes/notLoggedHeader/template.html"' ng-hide="logged"></div>
+    <div ng-include='"js/includes/loggedHeader/template.html"' ng-show="logged"></div>
 
     <!-- ng-view -->
     <ng-view>
-
     </ng-view>
+
+    <!-- ng-include footer -->
+    <div ng-include='"js/includes/notLoggedFooter/template.html"' ng-hide="logged"></div>
+    <div ng-include='"js/includes/loggedFooter/template.html"' ng-show="logged"></div>
+
   </div>
 
   <!-- jQuery -->
