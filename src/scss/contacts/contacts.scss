@@ -1,0 +1,29 @@
+@import '../variables/setVariables';
+
+.contacts-container {
+  .panel {
+    border: 1px solid $pr-light-gray;
+    // -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);
+    // -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);
+    // box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);
+  }
+  margin-top: 0;
+  font-weight: 500;
+
+  h2 {
+    margin-top: 50px;
+    color: $pr-medium-gray;
+  }
+
+  h4 {
+    margin-top: 55px;
+    color: $pr-medium-gray;
+  }
+
+  form {
+    button {
+      font-weight: bold;
+      color: $pr-medium-gray;
+    }
+  }
+}

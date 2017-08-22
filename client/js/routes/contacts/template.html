@@ -1,15 +1,31 @@
-<divng-controller="contactsCtrl">
-  <div class="col-md-6">
-      <div class="container">
-        <form class="" action="index.html" method="post">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
-        </form>
+<div ng-controller="contactsCtrl" class="contacts-container">
+  <div class="container">
+    <div class="col-sm-6">
+      <h2>
+        Your contacts
+      </h2>
+      <div class="contact-list-container">
+        <div class="panel panel-default">
+          <ul class="list-group">
+            <a href="#" class="list-group-item">Default User 1</a>
+            <a href="#" class="list-group-item">User 2</a>
+            <a href="#" class="list-group-item">User 3</a>
+          </ul>
+        </div>
       </div>
+    </div>
+    <div class="col-sm-6">
+      <h4>
+        You can add more contacts to your contact list
+      </h4>
+      <form class="" action="index.html" method="post">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="contact username" aria-label="contact username">
+          <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Add</button>
+            </span>
+        </div>
+      </form>
     </div>
   </div>
 </div>

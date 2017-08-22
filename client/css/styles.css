@@ -1,3 +1,13 @@
+/* --------------------- variables --------------------------------*/
+/* --------------------- main-container --------------------------------*/
+.main-container {
+  height: 100vh;
+  background-color: #F5F4E4;
+  font-family: 'Quicksand';
+  color: #2C3230; }
+
+/* --------------------- common --------------------------------*/
+/* --------------------- nav-container --------------------------------*/
 .nav-container {
   height: 14vh;
   background-color: #F03C02;
@@ -32,20 +42,10 @@
       background-color: white;
       font-size: 14px;
       font-weight: bold;
-      text-align: center; }
-      .nav-container .nav-bar ul li a i {
-        font-size: 16px; }
-    .nav-container .nav-bar ul li a:hover {
-      color: white;
-      background-color: #F03C02;
-      text-shadow: 0px 1px 1px #4d4d4d; }
-  .nav-container .nav-bar-logged ul li a {
-    width: 40px;
-    font-size: 16px;
-    margin: 0 10px; }
-nt-size: 14px;
-      font-weight: bold;
-      text-align: center; }
+      text-align: center;
+      -webkit-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0px 0px 5px -1px rgba(0, 0, 0, 0.75); }
       .nav-container .nav-bar ul li a i {
         font-size: 16px; }
     .nav-container .nav-bar ul li a:hover {
@@ -88,3 +88,58 @@ nt-size: 14px;
     text-shadow: 0px 1px 1px #FFF; }
 
 /* --------------------- welcome --------------------------------*/
+/* --------------------- login --------------------------------*/
+.login-container {
+  margin-top: 100px;
+  font-weight: 500; }
+  .login-container .panel {
+    border: 1px solid #D9DADE;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55); }
+  .login-container button {
+    font-weight: bold; }
+
+/* --------------------- register --------------------------------*/
+.register-container {
+  margin-top: 100px;
+  font-weight: 500; }
+  .register-container .panel {
+    border: 1px solid #D9DADE;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55); }
+  .register-container button {
+    font-weight: bold; }
+
+/* --------------------- contacts --------------------------------*/
+.contacts-container {
+  margin-top: 0;
+  font-weight: 500; }
+  .contacts-container .panel {
+    border: 1px solid #D9DADE; }
+  .contacts-container h2 {
+    margin-top: 50px;
+    color: #65727A; }
+  .contacts-container h4 {
+    margin-top: 55px;
+    color: #65727A; }
+  .contacts-container form button {
+    font-weight: bold;
+    color: #65727A; }
+
+/* --------------------- settings --------------------------------*/
+.settings-container {
+  margin-top: 0;
+  font-weight: 500; }
+  .settings-container .panel {
+    border: 1px solid #D9DADE; }
+  .settings-container h2 {
+    margin-top: 50px;
+    color: #65727A; }
+  .settings-container h4 {
+    margin-top: 55px;
+    color: #65727A; }
+  .settings-container form button {
+    font-weight: bold;
+    color: #65727A; }
