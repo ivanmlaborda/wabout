@@ -1,1 +1,38 @@
-<div ng-controller="settingsCtrl"></div>
+<div ng-controller="settingsCtrl" class="settings-container">
+  <div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>
+        Privacy settings
+      </h2>
+      <h4>Choose Who can track you</h4>
+      <form action="">
+        <div class="panel panel-default">
+          <ul class="list-group">
+            <li class="list-group-item">
+                Default User 1
+                <div class="material-switch pull-right">
+                    <input id="someSwitchOptionSuccess1" name="someSwitchOption001" type="checkbox"/>
+                    <label for="someSwitchOptionSuccess1" class="label-success"></label>
+                </div>
+            </li>
+            <li class="list-group-item">
+                Default User 2
+                <div class="material-switch pull-right">
+                    <input id="someSwitchOptionSuccess2" name="someSwitchOption002" type="checkbox"/>
+                    <label for="someSwitchOptionSuccess2" class="label-success"></label>
+                </div>
+            </li>
+            <li class="list-group-item">
+                Default User 3
+                <div class="material-switch pull-right">
+                    <input id="someSwitchOptionSuccess3" name="someSwitchOption003" type="checkbox"/>
+                    <label for="someSwitchOptionSuccess3" class="label-success"></label>
+                </div>
+            </li>
+          </ul>
+        </div>
+  <button class="btn btn-lg btn-success btn-block block-center">Update settings</button>
+      </form>
+    </div>
+  </div>
+</div>
