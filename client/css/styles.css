@@ -1,15 +1,18 @@
 /* --------------------- variables --------------------------------*/
 /* --------------------- main-container --------------------------------*/
 .main-container {
-  height: 100vh;
+  height: 100%;
   background-color: #F5F4E4;
   font-family: 'Quicksand';
   color: #2C3230; }
 
 /* --------------------- common --------------------------------*/
+html, body {
+  height: 100%; }
+
 /* --------------------- nav-container --------------------------------*/
 .nav-container {
-  height: 14vh;
+  height: 14%;
   background-color: #F03C02;
   border-bottom: 8px solid white; }
   .nav-container .top-bar {
@@ -59,11 +62,11 @@
 
 /* --------------------- map-container --------------------------------*/
 .map-container {
-  height: 86vh;
+  height: 86%;
   width: 100%;
   position: relative; }
   .map-container .map {
-    height: 86vh;
+    height: 100%;
     width: 100%;
     z-index: 5; }
 

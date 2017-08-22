@@ -1,11 +1,11 @@
 @import '../variables/setVariables';
 
 .map-container {
-  height: 86vh;
+  height: 86%;
   width: 100%;
   position: relative;
   .map {
-    height: 86vh;
+    height: 100%;
     width: 100%;
     z-index: 5;
   }
