@@ -1,10 +1,37 @@
-@import 'variables/setVariables';
+@import '../variables/setVariables';
 
 .map-container {
-  height: 100%;
+  height: 86vh;
   width: 100%;
+  position: relative;
   .map {
-    height: 100%;
+    height: 86vh;
     width: 100%;
+    z-index: 5;
+  }
+}
+
+.text-overlay {
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translateY(-70%);
+  transform: translateX(-50%);
+  z-index: 10;
+  strong {
+    font-family: 'Pacifico';
+    color: $pr-orange-red;
+    font-size: 50px;
+    text-shadow: 0px 1px 1px #FFF;
+
+  }
+  small {
+    color: $pr-orange-red;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px #FFF;
+
   }
 }
