@@ -1,14 +1,24 @@
 /* --------------------- variables --------------------------------*/
+/* --------------------- common --------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */ }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
 /* --------------------- main-container --------------------------------*/
 .main-container {
   height: 100%;
   background-color: #F03C02;
   font-family: 'Quicksand';
   color: #2C3230; }
-
-/* --------------------- common --------------------------------*/
-html, body {
-  height: 100%; }
 
 /* --------------------- header-container --------------------------------*/
 .header-container {
