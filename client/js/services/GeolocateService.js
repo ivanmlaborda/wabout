@@ -1,8 +1,6 @@
 angular.module('Wabout')
-  .factory('GeolocateService', function() {
-
+  .factory('GeolocateService', function () {
     function getGeolocation () {
-
       let userCoords = {}
       const options = {
         enableHighAccuracy: true,
@@ -10,8 +8,7 @@ angular.module('Wabout')
         maximumAge: 0
       }
 
-      return new Promise( function( resolve, reject ) {
-
+      return new Promise(function (resolve, reject) {
         function success (position) {
           userCoords.lat = position.coords.latitude
           userCoords.lng = position.coords.longitude
@@ -24,16 +21,10 @@ angular.module('Wabout')
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options)
-
-
-      } )
-
+      })
     }
 
-
     function getUserView (userCoords, zoom) {
-
-      // const userView = {lat, lng, zoom}
       console.log(userCoords)
       const userView = {}
       userView.lat = +userCoords.lat
@@ -42,9 +33,6 @@ angular.module('Wabout')
 
       return userView
     }
-
-
-
 
     return {
       getGeolocation,

@@ -1,8 +1,11 @@
 {
-  "name": "leaflet-socket",
+  "name": "wabout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "6.11.2"
+  },
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
