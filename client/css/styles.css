@@ -187,7 +187,7 @@ html, body {
 /* --------------------- contacts --------------------------------*/
 .contacts-container {
   height: 85vh;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: #F5F4E4;
   padding-top: 50px;
   padding-bottom: 75px;
@@ -196,10 +196,10 @@ html, body {
   .contacts-container .panel {
     border: 1px solid #D9DADE; }
   .contacts-container h2 {
-    margin-top: 50px;
+    margin-top: 30px;
     color: #65727A; }
   .contacts-container h4 {
-    margin-top: 55px;
+    margin-top: 40px;
     color: #65727A; }
   .contacts-container form button {
     font-weight: bold;
@@ -208,7 +208,7 @@ html, body {
 /* --------------------- groups --------------------------------*/
 .groups-container {
   height: 85vh;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: #F5F4E4;
   padding-top: 50px;
   padding-bottom: 75px;
@@ -217,10 +217,10 @@ html, body {
   .groups-container .panel {
     border: 1px solid #D9DADE; }
   .groups-container h2 {
-    margin-top: 50px;
+    margin-top: 30px;
     color: #65727A; }
   .groups-container h4 {
-    margin-top: 55px;
+    margin-top: 40px;
     color: #65727A; }
   .groups-container form button {
     font-weight: bold;
@@ -229,7 +229,7 @@ html, body {
 /* --------------------- settings --------------------------------*/
 .settings-container {
   height: 85vh;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: #F5F4E4;
   padding-top: 50px;
   padding-bottom: 75px;
@@ -274,10 +274,10 @@ html, body {
       background: inherit;
       left: 20px; }
   .settings-container h2 {
-    margin-top: 50px;
+    margin-top: 30px;
     color: #65727A; }
   .settings-container h4 {
-    margin-top: 25px;
+    margin-top: 40px;
     color: #65727A; }
   .settings-container form button {
     font-weight: bold;

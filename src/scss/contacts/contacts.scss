@@ -2,7 +2,7 @@
 
 .contacts-container {
   height: 85vh;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: $pr-white-broke;
   padding-top: 50px;
   padding-bottom: 75px;
@@ -16,12 +16,12 @@
   font-weight: 500;
 
   h2 {
-    margin-top: 50px;
+    margin-top: 30px;
     color: $pr-medium-gray;
   }
 
   h4 {
-    margin-top: 55px;
+    margin-top: 40px;
     color: $pr-medium-gray;
   }
 
