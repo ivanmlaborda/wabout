@@ -10,22 +10,44 @@ angular.module('Wabout')
         maximumAge: 0
       }
 
-      function success (position) {
-        userCoords.lat = position.coords.latitude
-        userCoords.lng = position.coords.latitude
-        userCoords.acr = position.coords.accuracy
-      }
+      return new Promise( function( resolve, reject ) {
 
-      function error (err) {
-        console.warn('ERROR(' + err.code + '): ' + err.message)
-      }
+        function success (position) {
+          userCoords.lat = position.coords.latitude
+          userCoords.lng = position.coords.longitude
+          userCoords.acr = position.coords.accuracy
+          resolve(userCoords)
+        }
 
-      navigator.geolocation.getCurrentPosition(success, error, options)
+        function error (err) {
+          console.warn('ERROR(' + err.code + '): ' + err.message)
+        }
 
-      return userCoords
+        navigator.geolocation.getCurrentPosition(success, error, options)
+
+
+      } )
+
     }
 
+
+    function getUserView (userCoords, zoom) {
+
+      // const userView = {lat, lng, zoom}
+      console.log(userCoords)
+      const userView = {}
+      userView.lat = +userCoords.lat
+      userView.lng = +userCoords.lng
+      userView.zoom = +zoom
+
+      return userView
+    }
+
+
+
+
     return {
-      getGeolocation: getGeolocation
+      getGeolocation,
+      getUserView
     }
   })
