@@ -1,9 +1,11 @@
 @import '../variables/setVariables';
 
 .contacts-container {
-  height: 80%;
+  height: 85vh;
   overflow: scroll;
   background-color: $pr-white-broke;
+  padding-top: 50px;
+  padding-bottom: 75px;
   .panel {
     border: 1px solid $pr-light-gray;
     // -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);
