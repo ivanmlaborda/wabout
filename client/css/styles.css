@@ -63,10 +63,10 @@ html, body {
       background-color: #F03C02;
       text-shadow: 0 1px 1px #4d4d4d; }
     .header-container .header-bar a.userTag {
-      font-weight: normal;
+      font-weight: bold;
       margin-right: 5px;
       text-shadow: 0 1px 1px #4d4d4d;
-      color: white;
+      color: #BEED80;
       background-color: #F03C02;
       box-shadow: none; }
       .header-container .header-bar a.userTag i {
