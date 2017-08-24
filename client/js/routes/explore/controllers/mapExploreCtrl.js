@@ -44,10 +44,10 @@
             focus: true,
             message: "You're here!",
             icon: {
-              iconUrl: '/img/custom-marker.png',
-              iconSize: [116, 116], // size of the icon
-              iconAnchor: [58, 58], // point of the icon which will correspond to marker's location
-              popupAnchor: [58, 58] // point from which the popup should open relative to the iconAnchor
+              iconUrl: '/img/001-signs-1.png',
+              iconSize: [48, 48],
+              iconAnchor: [24, 48],
+              popupAnchor: [0, -48]
             }
           }
         }
