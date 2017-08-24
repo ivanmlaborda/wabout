@@ -24,7 +24,7 @@ angular.module('Wabout')
       })
     }
 
-    function getUserView (userCoords, zoom) {
+    function setUserView (userCoords, zoom) {
       console.log(userCoords)
       const userView = {}
       userView.lat = +userCoords.lat
@@ -36,6 +36,6 @@ angular.module('Wabout')
 
     return {
       getGeolocation,
-      getUserView
+      setUserView
     }
   })
