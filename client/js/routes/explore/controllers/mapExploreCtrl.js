@@ -14,7 +14,7 @@
         zoom: 16
       },
       defaults: {
-        tileLayer: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        tileLayer: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png',
         zoomControlPosition: 'topright',
         tileLayerOptions: {
           opacity: 0.9,
