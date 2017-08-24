@@ -7,6 +7,11 @@
     $rootScope.logged = true
     console.log('mapExploreCtrl Loaded')
 
+    // Marker heroku
+    L.Icon.Default.imagePath = '/img/layers.png'
+
+    console.log(L.Icon.Default.imagePath)
+
     angular.extend($scope, {
       userView: {
         lat: 0,
@@ -21,12 +26,11 @@
           detectRetina: true,
           reuseTiles: true
         },
-        // ,scrollWheelZoom: false
-        defaultIcon: {
-          iconUrl: '/img/marker-icon.png',
-          iconSize:     [25, 41], // size of the icon
-          iconAnchor:   [22, 41], // point of the icon which will correspond to marker's location
-          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        customMarker: {
+          iconUrl: '/img/custom-marker.png',
+          iconSize: [116, 116], // size of the icon
+          iconAnchor: [58, 58], // point of the icon which will correspond to marker's location
+          popupAnchor: [58, 58] // point from which the popup should open relative to the iconAnchor
         }
       }
     })
@@ -39,7 +43,12 @@
             lng: lng,
             focus: true,
             message: "You're here!",
-            // icon: 'defaultIcon'
+            icon: {
+              iconUrl: '/img/custom-marker.png',
+              iconSize: [116, 116], // size of the icon
+              iconAnchor: [58, 58], // point of the icon which will correspond to marker's location
+              popupAnchor: [58, 58] // point from which the popup should open relative to the iconAnchor
+            }
           }
         }
       })
@@ -65,6 +74,21 @@
           $scope.markers.meMarker.lat = $scope.markers.meMarker.lat + 0.0005
           console.log($scope.markers.meMarker.lat)      })
         }, 3000)
+
+        // angular.extend($scope, {
+        //   customMarker: {
+        //     iconUrl: '/img/custom-marker.png',
+        //     iconSize:     [116, 116], // size of the icon
+        //     iconAnchor:   [58, 58], // point of the icon which will correspond to marker's location
+        //     popupAnchor:  [58, 58] // point from which the popup should open relative to the iconAnchor
+        //   }
+        // }
+
+
+
+
+
+
 
 
 
