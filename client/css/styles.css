@@ -23,6 +23,7 @@ html, body {
 /* --------------------- header-container --------------------------------*/
 .header-container {
   height: 7vh;
+  min-height: 7vh;
   background-color: #F03C02; }
   .header-container .header-bar {
     width: 100%;
@@ -79,6 +80,7 @@ html, body {
 /* --------------------- footer-container --------------------------------*/
 .footer-container {
   height: 8vh;
+  min-height: 8vh;
   background-color: #F03C02; }
   .footer-container .footer-bar-logged {
     height: 100%;

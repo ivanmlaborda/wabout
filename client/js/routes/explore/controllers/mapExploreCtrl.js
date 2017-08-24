@@ -1,27 +1,17 @@
 /* global angular */
-(function () {
+(function() {
   'use strict'
 
-  function mapExploreCtrl ($scope, $rootScope, GeolocateService) {
+  function mapExploreCtrl($scope, $rootScope, GeolocateService) {
     // OJO SOLO PARA DESARROLLO FRONT
     $rootScope.logged = true
     console.log('mapExploreCtrl Loaded')
-    let mainMarker = {
-      lat: 0,
-      lng: 0,
-      focus: true,
-      message: "You're here"
-      // draggable: true
-    }
 
     angular.extend($scope, {
       userView: {
-        lat: 51.505,
-        lng: -0.09,
-        zoom: 8
-      },
-      markers: {
-        mainMarker: angular.copy(mainMarker)
+        lat: 0,
+        lng: 0,
+        zoom: 16
       },
       defaults: {
         tileLayer: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
@@ -35,6 +25,19 @@
       }
     })
 
+    $scope.addMarkers = function (lat, lng) {
+      angular.extend($scope, {
+        markers: {
+          meMarker: {
+            lat: lat,
+            lng: lng,
+            focus: true,
+            message: "You're here!"
+          }
+        }
+      })
+    }
+
     GeolocateService.getGeolocation()
       .then(userCoords => {
         $scope.userCoords = userCoords
@@ -45,6 +48,7 @@
         angular.extend($scope, {
           userView: $scope.userView
         })
+        $scope.addMarkers($scope.userCoords.lat, $scope.userCoords.lng)
       })
   }
 
