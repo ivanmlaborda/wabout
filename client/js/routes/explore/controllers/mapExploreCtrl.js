@@ -5,6 +5,11 @@
   function mapExploreCtrl ($scope, $rootScope, GeolocateService) {
     // OJO SOLO PARA DESARROLLO FRONT
     $rootScope.logged = true
+
+    $scope.sync = true
+    $scope.share = false
+    $scope.markers = []
+
     console.log('mapExploreCtrl Loaded')
 
     angular.extend($scope, {
@@ -24,60 +29,110 @@
       }
     })
 
-    $scope.addMarkers = function (lat, lng) {
-      angular.extend($scope, {
-        markers: {
-          meMarker: {
-            lat: lat,
-            lng: lng,
-            focus: true,
-            message: "You're here!",
-            icon: {
-              iconUrl: '/img/001-signs-1.png',
-              iconSize: [48, 48],
-              iconAnchor: [24, 48],
-              popupAnchor: [0, -48]
+    $scope.addMeMarker = function (lat, lng) {
+      $scope.markers.shift()
+      $scope.markers.unshift(
+        {
+          lat: lat,
+          lng: lng,
+          id: 'me',
+          focus: false,
+          title: 'Marker',
+          message: 'You are here!',
+          label: {
+            message: 'You',
+            options: {
+              noHide: true
             }
+          },
+          icon: {
+            iconUrl: '/img/red-marker.png',
+            iconSize: [34, 48],
+            iconAnchor: [17, 48],
+            popupAnchor: [0, -48]
           }
         }
-      })
+      )
     }
 
+    $scope.addUsersMarkers = function (lat, lng, id) {
+      $scope.markers = $scope.markers.filter((userMarker) => {
+        return userMarker.id !== id
+      })
+      $scope.markers.push(
+        {
+          lat: lat,
+          lng: lng,
+          id: id,
+          focus: false,
+          label: `${id} is here!`,
+          icon: {
+            iconUrl: '/img/blue-marker.png',
+            iconSize: [34, 48],
+            iconAnchor: [17, 48],
+            popupAnchor: [0, -48]
+            }
+          }
+        )
+      }
+
     setInterval(() => {
-      GeolocateService.getGeolocation()
-        .then(userCoords => {
-          $scope.userCoords = userCoords
-          $scope.$apply(() => {
-            $scope.userView = GeolocateService.setUserView(userCoords, $scope.userView.zoom)
-            console.log($scope.userView)
+      if ($scope.sync) {
+        GeolocateService.getGeolocation()
+          .then(userCoords => {
+            $scope.userCoords = userCoords
+            if ($scope.share) {
+              socket.emit('userCoords', $scope.userCoords)
+            }
+
+            $scope.$apply(() => {
+              $scope.userView = GeolocateService.setUserView(userCoords, $scope.userView.zoom)
+              // console.log($scope.userView)
+            })
+            angular.extend($scope, {
+              userView: $scope.userView
+            })
+            $scope.addMeMarker($scope.userCoords.lat, $scope.userCoords.lng, $scope.userCoords.id)
           })
-          angular.extend($scope, {
-            userView: $scope.userView
-          })
-          $scope.addMarkers($scope.userCoords.lat, $scope.userCoords.lng)
-        })
+      }
     }, 2000)
 
-    // GeolocateService.getGeolocation()
-    //   .then(userCoords => {
-    //     $scope.userCoords = userCoords
-    //     $scope.$apply(() => {
-    //       $scope.userView = GeolocateService.setUserView(userCoords, 15)
-    //       console.log($scope.userView)
-    //     })
-    //     angular.extend($scope, {
-    //       userView: $scope.userView
-    //     })
-    //     $scope.addMarkers($scope.userCoords.lat, $scope.userCoords.lng)
-    //   })
+    const socket = io.connect()
+    socket.on('connect', function (data) {
+      socket.emit('join', 'Hello World from client')
+    })
 
-    // // TESTING REFRESH SCOPE USER MARKER
-    // setInterval(() => {
-    //   $scope.$apply(() => {
-    //     $scope.markers.meMarker.lat = $scope.markers.meMarker.lat + 0.0005
-    //     console.log($scope.markers.meMarker.lat)
-    //   })
-    // }, 3000)
+    socket.on('serverMsg', function (data) {
+      console.log(data)
+    })
+
+    socket.on('updateCoords', function (data) {
+      console.log('Geolocation received from user!')
+      $scope.addUsersMarkers(data.lat, data.lng, data.id)
+    })
+
+    $scope.shareLocation = () => {
+      $scope.sync = true
+      $scope.share = true
+      console.log('Some users can track you')
+    }
+    $scope.hideLocation = () => {
+      $scope.share = false
+      console.log('Any user can track you')
+    }
+    $scope.syncLocation = () => {
+      $scope.sync = true
+      console.log('Your position is sync')
+    }
+    $scope.unSyncLocation = () => {
+      $scope.sync = false
+      $scope.share = false
+      console.log('Your position is not sync. You can not view your position in the map or be tracked by any user')
+    }
+
+    $scope.showMarkers = () => {
+      console.log($scope.markers)
+    }
   }
 
   angular
