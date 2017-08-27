@@ -1,8 +1,8 @@
 /* global angular */
-(function () {
+(function() {
   'use strict'
 
-  function mapExploreCtrl ($scope, $rootScope, GeolocateService) {
+  function mapExploreCtrl($scope, $rootScope, GeolocateService) {
     // OJO SOLO PARA DESARROLLO FRONT
     $rootScope.logged = true
 
@@ -29,52 +29,63 @@
       }
     })
 
-    $scope.addMeMarker = function (lat, lng) {
+    $scope.addMeMarker = function(lat, lng) {
       $scope.markers.shift()
-      $scope.markers.unshift(
-        {
-          lat: lat,
-          lng: lng,
-          id: 'me',
-          focus: false,
-          title: 'Marker',
-          message: 'You are here!',
-          label: {
-            message: 'You',
-            options: {
-              noHide: true
-            }
-          },
-          icon: {
-            iconUrl: '/img/red-marker.png',
-            iconSize: [34, 48],
-            iconAnchor: [17, 48],
-            popupAnchor: [0, -48]
+      $scope.markers.unshift({
+        lat: lat,
+        lng: lng,
+        id: 'me',
+        focus: false,
+        title: 'Marker',
+        message: 'You are here!',
+        label: {
+          message: 'You',
+          options: {
+            noHide: true
           }
+        },
+        icon: {
+          iconUrl: '/img/red-marker.png',
+          iconSize: [34, 48],
+          iconAnchor: [17, 48],
+          popupAnchor: [0, -48]
         }
-      )
+      })
     }
 
-    $scope.addUsersMarkers = function (lat, lng, id) {
+    $scope.addUsersMarkers = function(lat, lng, id) {
       $scope.markers = $scope.markers.filter((userMarker) => {
         return userMarker.id !== id
       })
-      $scope.markers.push(
-        {
-          lat: lat,
-          lng: lng,
-          id: id,
-          focus: false,
-          label: `${id} is here!`,
-          icon: {
-            iconUrl: '/img/blue-marker.png',
-            iconSize: [34, 48],
-            iconAnchor: [17, 48],
-            popupAnchor: [0, -48]
-            }
-          }
-        )
-      }
+      $scope.markers.push({
+        lat: lat,
+        lng: lng,
+        id: id,
+        focus: false,
+        label: `${id} is here!`,
+        icon: {
+          iconUrl: '/img/blue-marker.png',
+          iconSize: [34, 48],
+          iconAnchor: [17, 48],
+          popupAnchor: [0, -48]
+        }
+      })
+    }
+
+    $scope.centerMe = () => {
+      GeolocateService.getGeolocation()
+        .then(userCoords => {
+          $scope.userCoords = userCoords
+          $scope.$apply(() => {
+            $scope.userView = GeolocateService.setUserView($scope.userCoords, $scope.userView.zoom)
+            // console.log($scope.userView)
+          })
+          angular.extend($scope, {
+            userView: $scope.userView
+          })
+        })
+    }
+    $scope.centerMe()
 
     setInterval(() => {
       if ($scope.sync) {
@@ -85,28 +96,33 @@
               socket.emit('userCoords', $scope.userCoords)
             }
 
-            $scope.$apply(() => {
-              $scope.userView = GeolocateService.setUserView(userCoords, $scope.userView.zoom)
-              // console.log($scope.userView)
-            })
-            angular.extend($scope, {
-              userView: $scope.userView
-            })
             $scope.addMeMarker($scope.userCoords.lat, $scope.userCoords.lng, $scope.userCoords.id)
           })
       }
     }, 2000)
 
+    if ($scope.markers[0]) {
+      $scope.$apply(() => {
+        $scope.userView = GeolocateService.setUserView($scope.userCoords, $scope.userView.zoom)
+        // console.log($scope.userView)
+      })
+
+      angular.extend($scope, {
+        userView: $scope.userView
+      })
+    }
+
+
     const socket = io.connect()
-    socket.on('connect', function (data) {
+    socket.on('connect', function(data) {
       socket.emit('join', 'Hello World from client')
     })
 
-    socket.on('serverMsg', function (data) {
+    socket.on('serverMsg', function(data) {
       console.log(data)
     })
 
-    socket.on('updateCoords', function (data) {
+    socket.on('updateCoords', function(data) {
       console.log('Geolocation received from user!')
       $scope.addUsersMarkers(data.lat, data.lng, data.id)
     })
