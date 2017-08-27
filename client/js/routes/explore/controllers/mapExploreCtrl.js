@@ -36,10 +36,10 @@
         lng: lng,
         id: 'me',
         focus: false,
-        title: 'Marker',
+        // title: 'Me',
         message: 'You are here!',
         label: {
-          message: 'You',
+          message: 'Me',
           options: {
             noHide: true
           }
@@ -62,7 +62,12 @@
         lng: lng,
         id: id,
         focus: false,
-        label: `${id} is here!`,
+        label: {
+          message: `${id}`,
+          options: {
+            // noHide: true
+          }
+        },
         icon: {
           iconUrl: '/img/blue-marker.png',
           iconSize: [34, 48],
@@ -95,23 +100,12 @@
             if ($scope.share) {
               socket.emit('userCoords', $scope.userCoords)
             }
-
-            $scope.addMeMarker($scope.userCoords.lat, $scope.userCoords.lng, $scope.userCoords.id)
+            $scope.$apply(() => {
+              $scope.addMeMarker($scope.userCoords.lat, $scope.userCoords.lng, $scope.userCoords.id)
+            })
           })
       }
     }, 2000)
-
-    if ($scope.markers[0]) {
-      $scope.$apply(() => {
-        $scope.userView = GeolocateService.setUserView($scope.userCoords, $scope.userView.zoom)
-        // console.log($scope.userView)
-      })
-
-      angular.extend($scope, {
-        userView: $scope.userView
-      })
-    }
-
 
     const socket = io.connect()
     socket.on('connect', function(data) {
