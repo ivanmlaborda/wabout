@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 const sio = require('socket.io')
 const http = require('http')
@@ -9,6 +10,10 @@ const io = sio.listen(server)
 const pathPublic = path.join(process.cwd(), 'client')
 
 const PORT = process.env.PORT || 3001
+const URL_DB = process.env.URL_DB || 'mongodb://localhost:27017/usersWabout'
+
+mongoose.promise = global.Promise
+mongoose.connect(URL_DB, {useMongoClient: true})
 
 app.use(express.static(pathPublic))
 
