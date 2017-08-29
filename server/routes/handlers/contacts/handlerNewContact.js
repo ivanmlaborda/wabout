@@ -23,9 +23,10 @@ function newContact (req, res) {
         { userName: userName },
         {$push: {contacts: {id: ObjectId(contactId)}}}
       )
-      .then(
+      .then(data => {
+        console.log(data)
         res.send(`${contactName} with id ${contactId} added tou your contact list`)
-      )
+      })
     // .then(console.log(contactId))
     )
 }
