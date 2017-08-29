@@ -1,16 +1,16 @@
 /* global angular */
 (function () {
   'use strict'
-  function contactsCtrl ($rootScope, DataService) {
-    //OJO SOLO PARA DESARROLLO FRONT!
+  function contactsCtrl ($scope, $rootScope, DataService) {
+    // OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = true
     $rootScope.userName = 'ivan'
     console.log('contactsCtrl Loaded')
+    $scope.contacts = []
 
     DataService.getUserIdByUserName($rootScope.userName)
-      .then(contacts => DataService.getContactsByUserId(contacts))
-      .then(console.log)
-
+      .then(data => DataService.getContactsByUserId(data.data._id))
+      .then(data => data.data.contacts.forEach(key => $scope.contacts.push(key.userId)))
   }
   angular
     .module('Wabout')

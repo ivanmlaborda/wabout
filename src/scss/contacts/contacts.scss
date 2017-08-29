@@ -31,4 +31,15 @@
       color: $pr-medium-gray;
     }
   }
+
+  .contact-list-container {
+    a {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      button {
+        padding: 3px 6px;
+      }
+    }
+  }
 }

@@ -1,32 +1,29 @@
 <div ng-controller="contactsCtrl" class="contacts-container">
   <div class="container">
     <div class="col-sm-6">
+      <h4>
+        Add contacts to your contact list
+      </h4>
+      <!-- <form class="" action="/contacts/{{$rootScope.userName}}" method="post"> -->
+      <form class="" action="/contact/ivan" method="post">
+        <div class="input-group">
+          <input type="text" class="form-control" name="contactName" placeholder="contact username" aria-label="contact username" autofocus="autofocus">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="submit">Add</button>
+          </span>
+        </div>
+      </form>
+    </div </div>
+    <div class="col-sm-6">
       <h2>
         Your contacts
       </h2>
       <div class="contact-list-container">
         <div class="panel panel-default">
           <ul class="list-group">
-            <a class="list-group-item">Default User 1</a>
-            <a class="list-group-item">User 2</a>
-            <a class="list-group-item">User 3</a>
+            <a class="list-group-item" ng-repeat="contact in contacts">{{contact.userName}}<button class="remove btn btn-danger pull-right"><i class="fa fa-remove"></i></button></a>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
-      <h4>
-        You can add more contacts to your contact list
-      </h4>
-      <!-- <form class="" action="/contacts/{{$rootScope.userName}}" method="post"> -->
-      <form class="" action="/contact/name/ivan" method="post">
-        <div class="input-group">
-          <input type="text" class="form-control" name="contactName" placeholder="contact username" aria-label="contact username" autofocus="autofocus">
-          <span class="input-group-btn">
-              <button class="btn btn-secondary" type="submit">Add</button>
-            </span>
-        </div>
-      </form>
-    </div
   </div>
-</div>
