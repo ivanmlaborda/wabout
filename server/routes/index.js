@@ -7,13 +7,14 @@ const getUserId = require('./handlers/user/handlerGetUserId')
 const newContact = require('./handlers/contact/handlerNewContact')
 const updateContact = require('./handlers/contact/handlerUpdateContact')
 const getContacts = require('./handlers/contacts/handlerGetContacts')
-
+const getContactsById = require('./handlers/contacts/handlerGetContactsByUserId')
 
 router.post('/auth/login/', login)
 router.post('/auth/register/', register)
 router.get('/user/:userName', getUserId)
 router.post('/contact/:userName', newContact)
 router.post('/contact/:userName', updateContact)
-router.get('/contacts/:userName', getContacts)
+router.get('/contacts/name/:userName', getContacts)
+router.get('/contacts/id/:userId', getContactsById)
 
 module.exports = router

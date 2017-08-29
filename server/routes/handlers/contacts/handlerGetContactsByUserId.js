@@ -3,15 +3,15 @@ const User = require('../../../models/User')
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
-function getContacts (req, res) {
-  const { userName } = req.params
+function getContactsById (req, res) {
+  const { userId } = req.params
 
   User
-    .find({userName})
+    .find({_id: userId})
     .populate('contacts.userId')
     .then(contacts =>{
       res.json(contacts)
     })
 }
 
-module.exports = getContacts
+module.exports = getContactsById
