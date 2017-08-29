@@ -3,7 +3,7 @@ const User = require('../../../models/User')
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
-function newContact (req, res) {
+function updateContact (req, res) {
   const { userName } = req.params
   const { contactName } = req.body
 
@@ -16,4 +16,4 @@ function newContact (req, res) {
     })
 }
 
-module.exports = newContact
+module.exports = updateContact
