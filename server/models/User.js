@@ -13,9 +13,10 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   contacts: [{
-    id: {
+    userId: {
       type: ObjectId,
-      ref: 'User'
+      ref: 'User',
+      unique: true
     },
     shareTo: {
       type: Boolean,

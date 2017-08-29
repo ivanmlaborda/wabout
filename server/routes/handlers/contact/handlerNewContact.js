@@ -8,11 +8,16 @@ function newContact (req, res) {
   const { contactName } = req.body
 
   User
-    .find({userName: contactName}, {_id: 1})
-    .then(user => user._id)
-    .then(userId => User.update({ userName },
-        {$push: {contacts: {id: ObjectId(userId)}}}
-      )
+    .findOne({userName: contactName}, {_id: 1})
+    .then(user => {
+      console.log(user)
+      return user._id})
+    .then(userId => {
+      console.log(userId)
+      return User.update({ userName },
+          {$push: {contacts: {userId}}}
+        )
+    }
     )
     .then(userUpdated => {
       res.send(`${contactName} added tou your contact list`)
