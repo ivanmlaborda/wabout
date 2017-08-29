@@ -13,8 +13,15 @@ angular.module('Wabout')
       return $http.get(url)
     }
 
+    function removeContact (userId) {
+      console.log(userId)
+      var url = '/contact/' + userId
+      return $http.get(url)
+    }
+
     return {
       getUserIdByUserName,
-      getContactsByUserId
+      getContactsByUserId,
+      removeContact
     }
   })

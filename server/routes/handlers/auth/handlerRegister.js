@@ -7,7 +7,7 @@ function register (req, res) {
   console.log(`${userName} // ${password}`)
 
   user.save()
-    .then(() => res.send(`Added task 👉 ${title}`))
+    .then(() => res.send(`Added user 👉 ${userName}`))
     // .then(() => res.redirect('/#!/auth/login'))
 }
 

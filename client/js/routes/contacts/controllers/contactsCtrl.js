@@ -11,6 +11,8 @@
     DataService.getUserIdByUserName($rootScope.userName)
       .then(data => DataService.getContactsByUserId(data.data._id))
       .then(data => data.data.contacts.forEach(key => $scope.contacts.push(key.userId)))
+
+    const removeContact = (userId) => DataService.removeContact(userId)
   }
   angular
     .module('Wabout')

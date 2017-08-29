@@ -21,7 +21,7 @@
       <div class="contact-list-container">
         <div class="panel panel-default">
           <ul class="list-group">
-            <a class="list-group-item" ng-repeat="contact in contacts">{{contact.userName}}<button class="remove btn btn-danger pull-right"><i class="fa fa-remove"></i></button></a>
+            <a class="list-group-item" ng-repeat="contact in contacts">{{contact.userName}}<button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button></a>
           </ul>
         </div>
       </div>
