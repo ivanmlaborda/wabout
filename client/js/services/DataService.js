@@ -7,6 +7,12 @@ angular.module('Wabout')
       return $http.get(url)
     }
 
+    function getUserById (userId) {
+      console.log(userId)
+      var url = '/user/id/' + userId
+      return $http.get(url)
+    }
+
     function getContactsByUserId (userId) {
       console.log(userId)
       var url = '/contacts/id/' + userId
@@ -21,6 +27,7 @@ angular.module('Wabout')
 
     return {
       getUserIdByUserName,
+      getUserById,
       getContactsByUserId,
       removeContact
     }

@@ -2,9 +2,11 @@
 (function() {
   'use strict'
 
-  function mapExploreCtrl($scope, $rootScope, GeolocateService) {
+  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT
     $rootScope.logged = true
+    $rootScope.userName = 'ivan'
+    $scope.userId = ''
 
     $scope.sync = true
     $scope.share = false
@@ -12,6 +14,28 @@
 
     console.log('mapExploreCtrl Loaded')
 
+    DataService.getUserIdByUserName($rootScope.userName)
+      .then((userId) => $scope.userId = userId.data._id)
+      .then((userId) => socket.emit('setId', userId))
+
+    // SOCKET.IO
+    const socket = io.connect()
+    socket.on('connect', function(data) {
+      socket.emit('join', `New client connection`)
+    })
+
+    socket.on('serverMsg', function(data) {
+      console.log(data)
+    })
+
+    socket.on('updateCoords', function(coordData) {
+      console.log('Geolocation received from contact!')
+      console.log(coordData)
+      $scope.addUsersMarkers(coordData.lat, coordData.lng, coordData.id, coordData.name)
+      console.log(coordData)
+    })
+
+    // LEAFLET MAP
     angular.extend($scope, {
       userView: {
         lat: 0,
@@ -53,7 +77,7 @@
       })
     }
 
-    $scope.addUsersMarkers = function(lat, lng, id) {
+    $scope.addUsersMarkers = function(lat, lng, id, name) {
       $scope.markers = $scope.markers.filter((userMarker) => {
         return userMarker.id !== id
       })
@@ -61,9 +85,10 @@
         lat: lat,
         lng: lng,
         id: id,
+        name: name,
         focus: false,
         label: {
-          message: `${id}`,
+          message: `${name}`,
           options: {
             // noHide: true
           }
@@ -83,7 +108,6 @@
           $scope.userCoords = userCoords
           $scope.$apply(() => {
             $scope.userView = GeolocateService.setUserView($scope.userCoords, $scope.userView.zoom)
-            // console.log($scope.userView)
           })
           angular.extend($scope, {
             userView: $scope.userView
@@ -97,6 +121,8 @@
         GeolocateService.getGeolocation()
           .then(userCoords => {
             $scope.userCoords = userCoords
+            $scope.userCoords.name = $rootScope.userName
+
             if ($scope.share) {
               socket.emit('userCoords', $scope.userCoords)
             }
@@ -107,19 +133,7 @@
       }
     }, 2000)
 
-    const socket = io.connect()
-    socket.on('connect', function(data) {
-      socket.emit('join', 'Hello World from client')
-    })
 
-    socket.on('serverMsg', function(data) {
-      console.log(data)
-    })
-
-    socket.on('updateCoords', function(data) {
-      console.log('Geolocation received from user!')
-      $scope.addUsersMarkers(data.lat, data.lng, data.id)
-    })
 
     $scope.shareLocation = () => {
       $scope.sync = true
