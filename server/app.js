@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
+let usersConnected = []
 let idList = {}
 
 io.on('connection', function(socket) {

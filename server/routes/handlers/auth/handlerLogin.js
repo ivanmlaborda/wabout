@@ -2,9 +2,11 @@ const User = require('../../../models/User')
 
 function login (req, res) {
 
-  const { userName, password } = req.body
+  const { userName} = req.body
+  console.log(userName)
 
-  res.redirect('/#!/explore')
+
+  res.send(userName)
 }
 
 module.exports = login

@@ -25,10 +25,17 @@ angular.module('Wabout')
       return $http.get(url)
     }
 
+    function loginTest (userName) {
+      let data = {userName}
+      var url = '/auth/login'
+      return $http.post(url, data)
+    }
+
     return {
       getUserIdByUserName,
       getUserById,
       getContactsByUserId,
-      removeContact
+      removeContact,
+      loginTest
     }
   })

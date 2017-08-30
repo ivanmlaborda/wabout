@@ -4,7 +4,7 @@
   function settingsCtrl ($scope, $rootScope, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = true
-    $rootScope.userName = 'ivan'
+    // $rootScope.userName = 'ivan'
     console.log('settingsCtrl Loaded')
     $scope.contacts = []
 

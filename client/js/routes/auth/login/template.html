@@ -6,10 +6,10 @@
           <h3 class="panel-title">Please Log in <a href="#!/explore" class="pull-right">pass</a></h3>
         </div>
         <div class="panel-body text-center">
-          <form action="/auth/login" method="POST">
+          <form ng-submit="submit()">
             <fieldset class="block-center">
               <div class="form-group">
-                <input placeholder="userName" name="userName" type="text" required="required" autofocus="autofocus" class="form-control" />
+                <input placeholder="userName" ng-model="userName" name="userName" type="text" required="required" autofocus="autofocus" class="form-control" />
               </div>
               <div class="form-group">
                 <input placeholder="Password" name="password" type="password" value="" required="required" class="form-control" />

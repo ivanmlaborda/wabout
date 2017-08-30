@@ -4,7 +4,8 @@
   function contactsCtrl ($scope, $rootScope, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = true
-    $rootScope.userName = 'ivan'
+    // $rootScope.userName = 'ivan'
+    // console.log($rootScope)
     console.log('contactsCtrl Loaded')
     $scope.contacts = []
 

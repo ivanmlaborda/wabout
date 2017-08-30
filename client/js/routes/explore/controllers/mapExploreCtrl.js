@@ -5,7 +5,7 @@
   function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT
     $rootScope.logged = true
-    $rootScope.userName = 'ivan'
+    // $rootScope.userName = 'ivan'
     $scope.userId = ''
 
     $scope.sync = true
