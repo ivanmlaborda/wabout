@@ -4,13 +4,16 @@
   function contactsCtrl ($scope, $rootScope, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = true
-    // $rootScope.userName = 'ivan'
-    // console.log($rootScope)
     console.log('contactsCtrl Loaded')
+    // $rootScope.userName = 'ivan'
+
     $scope.contacts = []
 
     DataService.getUserIdByUserName($rootScope.userName)
-      .then(data => DataService.getContactsByUserId(data.data._id))
+      .then(data => {
+        console.log(data)
+        return DataService.getContactsByUserId(data.data._id)
+      })
       .then(data => data.data.contacts.forEach(key => $scope.contacts.push(key.userId)))
 
     const removeContact = (userId) => DataService.removeContact(userId)

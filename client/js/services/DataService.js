@@ -25,10 +25,15 @@ angular.module('Wabout')
       return $http.get(url)
     }
 
-    function loginTest (userName) {
+    function submitLogin (userName) {
       let data = {userName}
       var url = '/auth/login'
       return $http.post(url, data)
+    }
+
+    function submitContact (userName) {
+      var url = '/contact/'+ userName
+      return $http.post(url)
     }
 
     return {
@@ -36,6 +41,6 @@ angular.module('Wabout')
       getUserById,
       getContactsByUserId,
       removeContact,
-      loginTest
+      submitLogin
     }
   })

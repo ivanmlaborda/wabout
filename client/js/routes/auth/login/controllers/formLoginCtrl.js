@@ -4,14 +4,9 @@
   function formLoginCtrl ($rootScope, $scope, DataService, $window) {
     console.log('formLoginCtrl Loaded')
 
-
-    //OJO SOLO PARA DESARROLLO FRONT!
-    $rootScope.logged = false
-    // $rootScope.userName = $scope.userName
-    // $location.path('/#!/explore')
     $scope.submit = function() {
       const {userName} = $scope
-      DataService.loginTest(userName)
+      DataService.submitLogin(userName)
         .then((data) => {
           console.log(data)
           $rootScope.userName = data.data
