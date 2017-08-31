@@ -12,7 +12,7 @@ function newContact (req, res) {
     .then(user => user._id)
     .then(userId => User.update({ userName }, {$push: {contacts: {userId}}}))
     .then(userUpdated => {
-      res.send(`${contactName} added to your contact list`)
+      res.send('contact added')
     })
 }
 

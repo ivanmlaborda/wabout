@@ -5,9 +5,9 @@
         Add contacts to your contact list
       </h4>
       <!-- <form class="" action="/contacts/{{$rootScope.userName}}" method="post"> -->
-      <form class="" action="/contact/userName" method="post">
+      <form ng-submit="submit()">
         <div class="input-group">
-          <input type="text" class="form-control" name="contactName" placeholder="contact username" aria-label="contact username" autofocus="autofocus">
+          <input ng-model="contactName" type="text" class="form-control" name="contactName" placeholder="contact username" aria-label="contact username" autofocus="autofocus">
           <span class="input-group-btn">
             <button class="btn btn-secondary" type="submit">Add</button>
           </span>
