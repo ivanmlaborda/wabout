@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const sio = require('socket.io')
 const http = require('http')
+const getBroadContacts = require('./modules/getBroadContacts.js')
 
 const app = express()
 const server = http.createServer(app)
@@ -40,11 +41,17 @@ io.on('connection', function(socket) {
   })
 
   socket.on('userCoords', function(data) {
-    data.id = findKey(idList, socket.id)
-    console.log(data.id)
-    io.emit('serverMsg', 'Data arrive to server')
-    // io.sockets.emit('updateCoords', data)
-    socket.broadcast.emit('updateCoords', data)
+    getBroadContacts(data.name)
+      .then(contacts => {
+        console.log(`broadContacts ${broadContacts}`)
+        data.id = findKey(idList, socket.id)
+        console.log(data.id)
+        io.emit('serverMsg', 'Data arrive to server')
+        // io.sockets.emit('updateCoords', data)
+        // bonaaaaa a sota
+        socket.broadcast.emit('updateCoords', data)
+      })
+
   })
 })
 
