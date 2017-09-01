@@ -43,7 +43,7 @@ io.on('connection', function(socket) {
   socket.on('userCoords', function(data) {
     getBroadContacts(data.name)
       .then(contacts => {
-        console.log(`broadContacts ${broadContacts}`)
+        console.log(`broadContacts ${contacts}`)
         data.id = findKey(idList, socket.id)
         console.log(data.id)
         io.emit('serverMsg', 'Data arrive to server')

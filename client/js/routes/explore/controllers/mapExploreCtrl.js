@@ -116,7 +116,10 @@
     }
     $scope.centerMe()
 
-    setInterval(() => {
+    //setInterval(() => {
+    $scope.shareLocation = () => {
+      $scope.share = true
+      
       if ($scope.sync) {
         GeolocateService.getGeolocation()
           .then(userCoords => {
@@ -131,11 +134,12 @@
             })
           })
       }
-    }, 2000)
+    }
+    //}, 2000)
 
 
 
-    $scope.shareLocation = () => {
+    $scope._shareLocation = () => {
       $scope.sync = true
       $scope.share = true
       console.log('Some users can track you')
