@@ -49,7 +49,9 @@ io.on('connection', function(socket) {
         io.emit('serverMsg', 'Data arrive to server')
         // io.sockets.emit('updateCoords', data)
         // bonaaaaa a sota
-        socket.broadcast.emit('updateCoords', data)
+        // socket.broadcast.emit('updateCoords', data)
+        contacts.forEach(contact => socket.to(idList[contact]).emit('updateCoords', data))
+
       })
 
   })
