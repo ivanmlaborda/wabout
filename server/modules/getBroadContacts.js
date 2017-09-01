@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 function getBroadContacts (userName) {
-  User
+
+  return User
     .findOne({userName})
     .populate('contacts.userId')
     // .then(console.log)
