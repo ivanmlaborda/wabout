@@ -5,14 +5,14 @@
         Privacy settings
       </h2>
       <h4>Choose Who can track you</h4>
-      <form action="/contact/ivan">
+      <form ng-submit="updatePrivacy()">
         <div class="panel panel-default">
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="contact in contacts">
-              {{contact.userName}}
+              {{contact.userId.userName}}
               <div class="material-switch pull-right">
-                <input id="someSwitchOptionSuccess1" name="someSwitchOption001" type="checkbox" />
-                <label for="someSwitchOptionSuccess1" class="label-success"></label>
+                <input id="{{contact.userId._id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact._id"/>
+                <label for="{{contact.userId._id}}" class="label-success"></label>
               </div>
             </li>
           </ul>
