@@ -21,19 +21,24 @@ function updateContact (req, res) {
         let contactId = contact.userId._id
         console.log(`ContactId ${contactId}`)
         console.log(contact.shareTo)
-        // if (grantedContacts.includes((contactId).toString())) {
-        //   console.log('included')
-        //   User
-        //     .findOne({userName})
-        //     .update({ userName }, {contacts: {userId: contactId}, contacts: {shareTo: true}})
-        //     .save()
-        // } else {
-        //   User
-        //     .findOne({userName})
-        //     .update({ userName }, {contacts: {userId: contactId}, contacts: {shareTo: false}})
-        //     .save()
-        // }
+        if (grantedContacts.includes((contactId).toString())) {
+          console.log(`${contactId} is included in Granted List`)
+          User
+            // .findOne({userName})
+            .update({userName}, {'contacts.userId': contactId}, {'$set': {'contacts.$.shareTo': true}})
+        } else {
+          console.log(`${contactId} is not included in Granted List`)
+          User
+            // .findOne({userName})
+            .update({userName}, {'contacts.userId': contactId}, {'$set': {'contacts.$.shareTo': false}})
+        }
       })
+    })
+    .then(userUpdated => {
+      res.send({ result: 'OK', message: 'privacy settings updated successfully' })
+    })
+    .catch(error => {
+      res.send({ result: 'KO', message: 'an error happened updating privacy settings', error })
     })
 }
 
