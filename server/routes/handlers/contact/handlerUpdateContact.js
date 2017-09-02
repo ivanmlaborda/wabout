@@ -15,8 +15,7 @@ function updateContact (req, res) {
   User
     .findOne({userName})
     .populate('contacts.userId')
-    .then(user =>{
-      // console.log(JSON.stringify(user.contacts))
+    .then(user => {
       user.contacts.forEach(contact => {
         let contactId = contact.userId._id
         console.log(`ContactId ${contactId}`)
@@ -24,13 +23,13 @@ function updateContact (req, res) {
         if (grantedContacts.includes((contactId).toString())) {
           console.log(`${contactId} is included in Granted List`)
           User
-            // .findOne({userName})
-            .update({userName}, {'contacts.userId': contactId}, {'$set': {'contacts.$.shareTo': true}})
+            .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': true})
+            .then(console.log)
         } else {
           console.log(`${contactId} is not included in Granted List`)
           User
-            // .findOne({userName})
-            .update({userName}, {'contacts.userId': contactId}, {'$set': {'contacts.$.shareTo': false}})
+            .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': false})
+            .then(console.log)
         }
       })
     })

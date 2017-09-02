@@ -28,6 +28,7 @@
       console.log('submit')
       console.log($scope.granteds.contacts)
       DataService.updatePrivacy($rootScope.userName, $scope.granteds.contacts)
+        .then(data => console.log(data.data.message))
     }
   }
   angular
