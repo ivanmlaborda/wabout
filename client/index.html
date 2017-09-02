@@ -6,6 +6,7 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="bower_components/Leaflet.label/dist/leaflet.label.css">
@@ -31,7 +32,9 @@
     <div ng-include='"js/includes/loggedFooter/template.html"' ng-show="logged"></div>
 
   </div>
-
+  
+  <!-- Assets -->
+  <script src="js/assets/hideAdressBarMobile.js"></script>
   <!-- jQuery -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- socket.io -->

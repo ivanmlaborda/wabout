@@ -8,7 +8,7 @@
     console.log('settingsCtrl Loaded')
     $scope.contacts = []
     $scope.granteds = {
-      contacts : []
+      contacts: []
     }
 
     DataService.getUserIdByUserName($rootScope.userName)
@@ -22,10 +22,10 @@
       .then(console.log($scope.contacts))
       .then(console.log($scope.granteds.contacts))
 
-
     $scope.updatePrivacy = () => {
       console.log('submit')
       console.log($scope.granteds.contacts)
+      DataService.updatePrivacy($rootScope.userName, $scope.granteds.contacts)
     }
   }
   angular

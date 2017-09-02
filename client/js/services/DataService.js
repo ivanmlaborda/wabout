@@ -37,12 +37,20 @@ angular.module('Wabout')
       return $http.post(url, data)
     }
 
+    function updatePrivacy (userName, grantedContacts) {
+      let data = {grantedContacts}
+      let url = '/contact/privacy/' + userName
+      console.log(data)
+      return $http.post(url, data)
+    }
+
     return {
       getUserIdByUserName,
       getUserById,
       getContactsByUserId,
       removeContact,
       submitLogin,
-      submitContact
+      submitContact,
+      updatePrivacy
     }
   })
