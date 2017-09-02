@@ -4,12 +4,13 @@
   function settingsCtrl ($scope, $rootScope, DataService) {
     // OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = true
-    // $rootScope.userName = 'ivan'
+
     console.log('settingsCtrl Loaded')
     $scope.contacts = []
     $scope.granteds = {
       contacts: []
     }
+    console.log($scope.granteds)
 
     DataService.getUserIdByUserName($rootScope.userName)
       .then(data => DataService.getContactsByUserId(data.data._id))
@@ -24,7 +25,8 @@
       .then(console.log($scope.contacts))
       .then(console.log($scope.granteds.contacts))
 
-    $scope.updatePrivacy = () => {
+    $scope.updatePrivacy = (event) => {
+      event.preventDefault
       console.log('submit')
       console.log($scope.granteds.contacts)
       DataService.updatePrivacy($rootScope.userName, $scope.granteds.contacts)

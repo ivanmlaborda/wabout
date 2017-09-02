@@ -25,7 +25,8 @@ function updateContact (req, res) {
           User
             .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': true})
             .then(console.log)
-        } else {
+        }
+        if (!grantedContacts.includes((contactId).toString())) {
           console.log(`${contactId} is not included in Granted List`)
           User
             .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': false})
