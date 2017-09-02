@@ -11,7 +11,7 @@
             <li class="list-group-item" ng-repeat="contact in contacts">
               {{contact.userId.userName}}
               <div class="material-switch pull-right">
-                <input id="{{contact.userId._id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact._id"/>
+                <input id="{{contact.userId._id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/>
                 <label for="{{contact.userId._id}}" class="label-success"></label>
               </div>
             </li>

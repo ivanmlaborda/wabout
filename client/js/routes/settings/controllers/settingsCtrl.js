@@ -13,10 +13,12 @@
 
     DataService.getUserIdByUserName($rootScope.userName)
       .then(data => DataService.getContactsByUserId(data.data._id))
-      .then(data => data.data.contacts.forEach(contact => $scope.contacts.push(contact)))
+      .then(data => {
+        console.log(data)
+        data.data.contacts.forEach(contact => $scope.contacts.push(contact))})
       .then(() => $scope.contacts.forEach(contact => {
         if (contact.shareTo) {
-          $scope.granteds.contacts.push(contact._id)
+          $scope.granteds.contacts.push(contact.userId._id)
         }
       }))
       .then(console.log($scope.contacts))
