@@ -96,7 +96,7 @@
         overlays: {
           labels : {
             name: 'Labels',
-            url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.{ext}',
+            url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.{ext}',
             type: 'xyz',
             layerOptions: {
               opacity: 0.7,
