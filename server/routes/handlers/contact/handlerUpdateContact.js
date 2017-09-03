@@ -13,9 +13,9 @@ function updateContact (req, res) {
   console.log('grantedContacts')
   console.log(grantedContacts)
 
-  // User
-  //   .findOne({userName})
-  //   .populate('contacts.userId')
+  User
+    .findOne({userName})
+    .populate('contacts.userId')
   //   .then(user => {
   //     async.eachSeries(user.contacts, (contact, callback) => {
   //       let contactId = contact.userId._id

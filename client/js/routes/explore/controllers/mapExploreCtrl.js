@@ -152,9 +152,6 @@
       console.log('Your position is not sync. You can not view your position in the map or be tracked by any user')
     }
 
-    $scope.showMarkers = () => {
-      console.log($scope.markers)
-    }
   }
 
   angular

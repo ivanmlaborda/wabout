@@ -23,6 +23,15 @@
           <ul class="list-group">
             <a class="list-group-item" ng-repeat="contact in contacts">{{contact.userName}}<button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button></a>
           </ul>
+          <!-- <form>
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="contact in contacts">
+                {{contact.userName}}
+                <button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button>
+                <input id="{{contact.userId._id}}" type="hidden" />
+              </li>
+            </ul>
+          </form> -->
         </div>
       </div>
     </div>

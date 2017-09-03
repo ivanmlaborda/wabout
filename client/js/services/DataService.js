@@ -22,7 +22,7 @@ angular.module('Wabout')
     function removeContact (userId) {
       console.log(userId)
       var url = '/contact/' + userId
-      return $http.get(url)
+      return $http.delete(url)
     }
 
     function submitLogin (userName) {
