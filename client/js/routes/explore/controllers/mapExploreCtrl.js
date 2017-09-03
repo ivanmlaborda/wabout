@@ -40,15 +40,71 @@
       userView: {
         lat: 0,
         lng: 0,
-        zoom: 16
+        zoom: 18
       },
       defaults: {
-        tileLayer: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png',
         zoomControlPosition: 'topright',
-        tileLayerOptions: {
-          opacity: 0.9,
-          detectRetina: true,
-          reuseTiles: true
+      },
+      layers: {
+        baselayers: {
+          cartodbLight: {
+            name: 'Light',
+            url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png',
+            type: 'xyz',
+            layerOptions: {
+              opacity: 1,
+              detectRetina: true,
+              reuseTiles: true,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+            }
+          },
+          cartodbDark: {
+            name: 'Dark (Night mode)',
+            url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}@2x.png',
+            type: 'xyz',
+            layerOptions: {
+              opacity: 1,
+              detectRetina: true,
+              reuseTiles: true,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+            }
+          },
+          stamen: {
+            name: 'Hight Contrast',
+            url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}',
+            type: 'xyz',
+            layerOptions: {
+              opacity: 1,
+              ext: 'png',
+              detectRetina: true,
+              reuseTiles: true,
+              attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }
+          },
+          satImagery: {
+            name: 'Imagery',
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+            type: 'xyz',
+            layerOptions: {
+              opacity: 1,
+              detectRetina: true,
+              reuseTiles: true,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+            }
+          }
+        },
+        overlays: {
+          labels : {
+            name: 'Labels',
+            url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.{ext}',
+            type: 'xyz',
+            layerOptions: {
+              opacity: 0.7,
+              ext: 'png',
+              reuseTiles: true,
+              attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }
+          }
         }
       }
     })
