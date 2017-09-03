@@ -1,5 +1,6 @@
 const User = require('../../../models/User')
 
+const async = require('async')
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
@@ -12,9 +13,57 @@ function updateContact (req, res) {
   console.log('grantedContacts')
   console.log(grantedContacts)
 
-  User
-    .findOne({userName})
-    .populate('contacts.userId')
+  // User
+  //   .findOne({userName})
+  //   .populate('contacts.userId')
+  //   .then(user => {
+  //     async.eachSeries(user.contacts, (contact, callback) => {
+  //       let contactId = contact.userId._id
+  //       console.log(`ContactId ${contactId}`)
+  //       console.log(contact.shareTo)
+  //       if (grantedContacts.includes((contactId).toString())) {
+  //         console.log(`${contactId} is included in Granted List`)
+  //         User
+  //           .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': true})
+  //           .then(console.log)
+  //           .then(() => callback())
+  //       }
+  //       if (!grantedContacts.includes((contactId).toString())) {
+  //         console.log(`${contactId} is not included in Granted List`)
+  //         User
+  //           .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': false})
+  //           .then(console.log)
+  //           .then(() => callback())
+  //       }
+  //     })
+  //   })
+
+    // .then(user => {
+    //   let promises = []
+    //   user.contacts.forEach(contact => {
+    //     const promise = new Promise ((res, rej) => {
+    //       let contactId = contact.userId._id
+    //       console.log(`ContactId ${contactId}`)
+    //       console.log(contact.shareTo)
+    //       if (grantedContacts.includes((contactId).toString())) {
+    //         console.log(`${contactId} is included in Granted List`)
+    //         User
+    //           .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': true})
+    //           .then(console.log)
+    //       }
+    //       if (!grantedContacts.includes((contactId).toString())) {
+    //         console.log(`${contactId} is not included in Granted List`)
+    //         User
+    //           .update({'userName': userName, 'contacts.$.userId': ObjectId(contactId)}, {'contacts.$.shareTo': false})
+    //           .then(console.log)
+    //       }
+    //       res()
+    //     })
+    //     promises.push(promise)
+    //   })
+    //   Promise.all(promises).then(console.log('All Promises finished'))
+    // })
+
     .then(user => {
       user.contacts.forEach(contact => {
         let contactId = contact.userId._id
