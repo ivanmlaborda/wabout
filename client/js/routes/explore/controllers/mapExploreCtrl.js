@@ -70,7 +70,7 @@
             }
           },
           stamen: {
-            name: 'Hight Contrast',
+            name: 'High Contrast',
             url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}',
             type: 'xyz',
             layerOptions: {
@@ -89,7 +89,7 @@
               opacity: 1,
               detectRetina: true,
               reuseTiles: true,
-              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+              attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS'
             }
           }
         },
