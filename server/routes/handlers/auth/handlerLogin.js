@@ -1,11 +1,24 @@
-const User = require('../../../models/User')
+// const User = require('../../../models/User')
+//
+// function login (req, res) {
+//
+//   const { userName} = req.body
+//   console.log(userName)
+//
+//   res.send(userName)
+// }
+//
+// module.exports = login
 
-function login (req, res) {
+var jwt = require('jsonwebtoken')
 
-  const { userName} = req.body
-  console.log(userName)
+function handleLogin (req, res) {
+  const SECRET = process.env.SECRET
+  const { _id: id, username } = req.user
 
-  res.send(userName)
+  const token = jwt.sign({ id, username }, SECRET)
+
+   res.json({success: true, token: token})
 }
 
-module.exports = login
+module.exports = handleLogin

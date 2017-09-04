@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const passport = require(__base + '/config/passport')
 
 const login = require('./handlers/auth/handlerLogin')
 const register = require('./handlers/auth/handlerRegister')
@@ -11,7 +12,7 @@ const removeContact = require('./handlers/contact/handlerRemoveContact')
 const getContacts = require('./handlers/contacts/handlerGetContacts')
 const getContactsById = require('./handlers/contacts/handlerGetContactsByUserId')
 
-router.post('/auth/login/', login)
+router.post('/auth/login/', passport.authenticate('local', { session: false }), login)
 router.post('/auth/register/', register)
 router.get('/user/:userName', getUserId)
 router.get('/user/id/:userId', getUser)

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="bower_components/Leaflet.label/dist/leaflet.label.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bower_components/angular-toastr/dist/angular-toastr.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Spinnaker|Quicksand:300,400,500,700">
   <title>Wabout</title>
@@ -41,6 +42,8 @@
   <!-- Angular -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+  <script src="/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
   <!-- Checklist Model -->
   <script src="bower_components/checklist-model/checklist-model.js"></script>
   <!-- Leaflet -->
@@ -55,6 +58,9 @@
   <!-- SERVICES CONTROLLERS -->
   <script src="js/services/GeolocateService.js"></script>
   <script src="js/services/DataService.js"></script>
+  <script src="js/services/AuthService.js"></script>
+  <script src="js/services/StorageService.js"></script>
+  <script src="js/services/AuthInterceptor.js"></script>
   <!-- WELCOME CONTROLLERS -->
   <script src="js/routes/welcome/index.js"></script>
   <script src="js/routes/welcome/controllers/mapCtrl.js"></script>

@@ -6,6 +6,11 @@ const sio = require('socket.io')
 const http = require('http')
 const getBroadContacts = require('./modules/getBroadContacts.js')
 
+require('dotenv').load()
+
+// global.__base = path.join(__dirname, '/server')
+global.__base = path.join(__dirname)
+
 const app = express()
 const server = http.createServer(app)
 const io = sio.listen(server)
