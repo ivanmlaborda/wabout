@@ -14,12 +14,12 @@ const getContactsById = require('./handlers/contacts/handlerGetContactsByUserId'
 
 router.post('/auth/login/', passport.authenticate('local', { session: false }), login)
 router.post('/auth/register/', register)
-router.get('/user/:userName', getUserId)
+router.get('/user/:username', getUserId)
 router.get('/user/id/:userId', getUser)
-router.post('/contact/:userName', newContact)
-router.post('/contact/privacy/:userName', updateContact)
+router.post('/contact/:username', newContact)
+router.post('/contact/privacy/:username', updateContact)
 router.delete('/contact/:id', removeContact)
-router.get('/contacts/name/:userName', getContacts)
+router.get('/contacts/name/:username', getContacts)
 router.get('/contacts/id/:userId', getContactsById)
 
 module.exports = router

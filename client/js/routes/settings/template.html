@@ -9,7 +9,7 @@
         <div class="panel panel-default">
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="contact in contacts">
-              {{contact.userId.userName}}
+              {{contact.userId.username}}
               <!-- <input type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/> -->
               <div class="material-switch pull-right">
                 <input id="{{contact.userId._id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/>

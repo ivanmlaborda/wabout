@@ -1,10 +1,10 @@
 const User = require('../../../models/User')
 
 function getUserId (req, res) {
-  const { userName } = req.params
+  const { username } = req.params
 
   User
-    .findOne({userName}, {_id: 1})
+    .findOne({username}, {_id: 1})
     .then(userId => {
       res.json(userId)
     })

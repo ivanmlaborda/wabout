@@ -2,10 +2,14 @@
 (function() {
   'use strict'
 
-  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService) {
-    // OJO SOLO PARA DESARROLLO FRONT
-    $rootScope.logged = true
-    // $rootScope.userName = 'ivan'
+  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService, AuthService, $location) {
+
+    if (!AuthService.isLoggedIn()) {
+      $location.path('/auth/login')
+    }
+
+    const username = $rootScope.loggedUser
+
     $scope.userId = ''
 
     $scope.sync = true
@@ -14,7 +18,7 @@
 
     console.log('mapExploreCtrl Loaded')
 
-    DataService.getUserIdByUserName($rootScope.userName)
+    DataService.getUserIdByUserName(username)
       .then((userId) => $scope.userId = userId.data._id)
       .then((userId) => socket.emit('setId', userId))
 
@@ -177,7 +181,7 @@
         GeolocateService.getGeolocation()
           .then(userCoords => {
             $scope.userCoords = userCoords
-            $scope.userCoords.name = $rootScope.userName
+            $scope.userCoords.name = username
 
             if ($scope.share) {
               socket.emit('userCoords', $scope.userCoords)

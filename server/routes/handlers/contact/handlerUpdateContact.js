@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 function updateContact (req, res) {
-  const { userName } = req.params
+  const { username } = req.params
   const { grantedContacts } = req.body
   let contactList = []
 
@@ -14,12 +14,12 @@ function updateContact (req, res) {
   console.log(grantedContacts)
 
   User
-    .findOne({userName})
+    .findOne({username})
     .populate('contacts.userId')
     .then(user => {
       const aPromisesUpdate = user.contacts.map( (contact, i) => {
         const sContactId = contact.userId._id.toString()
-        const queryToUpdate = { userName, 'contacts.userId': sContactId }
+        const queryToUpdate = { username, 'contacts.userId': sContactId }
         const bShallIShare = grantedContacts.includes(sContactId)
         return User
             .update(queryToUpdate, { 'contacts.$.shareTo': bShallIShare })

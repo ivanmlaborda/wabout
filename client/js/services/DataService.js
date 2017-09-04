@@ -1,9 +1,9 @@
 angular.module('Wabout')
   .factory('DataService', function ($http) {
 
-    function getUserIdByUserName (userName) {
-      console.log(userName)
-      var url = '/user/' + userName
+    function getUserIdByUserName (username) {
+      console.log(username)
+      var url = '/user/' + username
       return $http.get(url)
     }
 
@@ -25,21 +25,21 @@ angular.module('Wabout')
       return $http.delete(url)
     }
 
-    function submitLogin (userName) {
-      let data = {userName}
+    function submitLogin (username) {
+      let data = {username}
       const url = '/auth/login'
       return $http.post(url, data)
     }
 
-    function submitContact (userName, contactName) {
+    function submitContact (username, contactName) {
       let data = {contactName}
-      let url = '/contact/' + userName
+      let url = '/contact/' + username
       return $http.post(url, data)
     }
 
-    function updatePrivacy (userName, grantedContacts) {
+    function updatePrivacy (username, grantedContacts) {
       let data = {grantedContacts}
-      let url = '/contact/privacy/' + userName
+      let url = '/contact/privacy/' + username
       console.log(data)
       return $http.post(url, data)
     }

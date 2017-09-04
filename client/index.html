@@ -22,16 +22,16 @@
   <div class="main-container">
 
     <!-- ng-include header -->
-    <div ng-include='"js/includes/notLoggedHeader/template.html"' ng-hide="logged"></div>
-    <div ng-include='"js/includes/loggedHeader/template.html"' ng-show="logged"></div>
+    <div ng-include='"js/includes/notLoggedHeader/template.html"' ng-hide="loggedUser"></div>
+    <div ng-include='"js/includes/loggedHeader/template.html"' ng-show="loggedUser"></div>
 
     <!-- ng-view -->
     <ng-view>
     </ng-view>
 
     <!-- ng-include footer -->
-    <div ng-include='"js/includes/notLoggedFooter/template.html"' ng-hide="logged"></div>
-    <div ng-include='"js/includes/loggedFooter/template.html"' ng-show="logged"></div>
+    <div ng-include='"js/includes/notLoggedFooter/template.html"' ng-hide="loggedUser"></div>
+    <div ng-include='"js/includes/loggedFooter/template.html"' ng-show="loggedUser"></div>
 
   </div>
 
