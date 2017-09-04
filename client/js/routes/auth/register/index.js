@@ -5,7 +5,9 @@
   .config(function ($routeProvider) {
     $routeProvider
     .when('/auth/register', {
-      templateUrl: 'js/routes/auth/register/template.html'
+      templateUrl: 'js/routes/auth/register/template.html',
+      controller: 'formRegisterCtrl',
+      controllerAs: 'ctrl'
     })
   })
 
