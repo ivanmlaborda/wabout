@@ -1,6 +1,5 @@
 const User = require('../../../models/User')
 
-const async = require('async')
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 

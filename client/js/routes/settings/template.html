@@ -12,7 +12,7 @@
               {{contact.username}}
               <!-- <input type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/> -->
               <div class="material-switch pull-right">
-                <input id="{{contact.id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.id"/>
+                <input id="{{contact.id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="ctrl.granteds.contacts" checklist-value="contact.id"/>
                 <label for="{{contact.id}}" class="label-success"></label>
               </div>
             </li>

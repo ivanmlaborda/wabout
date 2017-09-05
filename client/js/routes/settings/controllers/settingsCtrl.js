@@ -26,6 +26,12 @@
         data.data.forEach(contact => self.contacts.push(contact))
         console.log(self.contacts)
       })
+      .then(() => self.contacts.forEach(contact => {
+        if (contact.shareTo) {
+          self.granteds.contacts.push(contact.id)
+        }
+      }))
+
       // .then(() => self.contacts.forEach(contact => {
       //   if (contact.shareTo) {
       //     self.granteds.contacts.push(contact.userId._id)
@@ -40,6 +46,9 @@
       console.log(self.granteds.contacts)
       DataService.updatePrivacy(username, self.granteds.contacts)
         .then(data => console.log(data.data.message))
+        // .then(() => {
+        //   $route.reload()
+        // })
     }
   }
   angular
