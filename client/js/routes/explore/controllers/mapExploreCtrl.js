@@ -9,6 +9,7 @@
     }
 
     const username = $rootScope.loggedUser
+    console.log(username)
 
     $scope.userId = ''
 

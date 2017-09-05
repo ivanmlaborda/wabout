@@ -3,10 +3,10 @@ const User = require('../models/User')
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
-function getBroadContacts (userName) {
+function getBroadContacts (username) {
 
   return User
-    .findOne({userName})
+    .findOne({username})
     .populate('contacts.userId')
     // .then(console.log)
     .then(user => {

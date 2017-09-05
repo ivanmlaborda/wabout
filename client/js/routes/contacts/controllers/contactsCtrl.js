@@ -9,11 +9,11 @@
 
     const self = this
 
+    self.contacts = []
+
     const username = $rootScope.loggedUser
     console.log(username)
 
-
-    self.contacts = []
 
     self.addContact = (e) => {
       e.preventDefault()
@@ -27,8 +27,14 @@
 
     DataService.getUserIdByUserName(username)
       .then(data => DataService.getContactsByUserId(data.data._id))
-      .then(console.log)
-      // .then(data => data.data.contacts.forEach(key => self.contacts.push(key.userId)))
+      .then(data => {
+        self.contacts = data.data
+        console.log(self.contacts)
+      })
+
+      // .then(data => data.contacts.forEach(contact => self.contacts.push(contact.id)))
+      // .then(() => console.log(self.contacts))
+
       // .then(data => console.log(self.contacts))
 
     // const removeContact = (userId) => DataService.removeContact(userId)

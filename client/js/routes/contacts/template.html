@@ -20,10 +20,10 @@
     <div class="contact-list-container">
       <div class="panel panel-default">
         <ul class="list-group">
-          <a class="list-group-item" ng-repeat="contact in contacts">{{contact.username}}<button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button></a>
+          <a class="list-group-item" ng-repeat="contact in ctrl.contacts">{{contact.username}}<button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button></a>
         </ul>
         <!-- <form>
-            <ul class="list-group">
+            <ul class="list-group">let
               <li class="list-group-item" ng-repeat="contact in contacts">
                 {{contact.username}}
                 <button class="remove btn btn-danger pull-right" ng-click="removeContact()"><i class="fa fa-remove"></i></button>

@@ -2,13 +2,11 @@ angular.module('Wabout')
   .factory('DataService', function ($http) {
 
     function getUserIdByUserName (username) {
-      console.log(username)
       let url = '/user/' + username
       return $http.get(url)
     }
 
     function getUserById (userId) {
-      console.log(userId)
       let url = '/user/id/' + userId
       return $http.get(url)
     }
@@ -20,7 +18,6 @@ angular.module('Wabout')
     }
 
     function removeContact (userId) {
-      console.log(userId)
       let url = '/contact/' + userId
       return $http.delete(url)
     }

@@ -42,10 +42,12 @@ io.on('connection', function(socket) {
   })
   socket.on('setId', (userId) => {
     idList[userId] = socket.id
+    console.log('idList')
     console.log(idList)
   })
 
   socket.on('userCoords', function(data) {
+    console.log('userCoords arrive')
     getBroadContacts(data.name)
       .then(contacts => {
         console.log(`broadContacts ${contacts}`)

@@ -9,7 +9,6 @@
         if (success) {
           toastr.success('succesfully logged')
           $location.path('/explore')
-          $rootScope.loggedUser = username
         } else {
           toastr.error('try again!')
         }
