@@ -38,7 +38,8 @@ function getContactsById (req, res) {
     .then(data => data.contacts.map(contact => {
       const id = contact.userId._id
       const username = contact.userId.username
-      return { id, username }
+      const shareTo = contact.shareTo
+      return { id, username, shareTo }
     }))
     .then(data => {
       console.log(data)
