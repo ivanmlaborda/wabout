@@ -3,25 +3,25 @@ angular.module('Wabout')
 
     function getUserIdByUserName (username) {
       console.log(username)
-      var url = '/user/' + username
+      let url = '/user/' + username
       return $http.get(url)
     }
 
     function getUserById (userId) {
       console.log(userId)
-      var url = '/user/id/' + userId
+      let url = '/user/id/' + userId
       return $http.get(url)
     }
 
     function getContactsByUserId (userId) {
-      console.log(userId)
-      var url = '/contacts/id/' + userId
+      let url = '/contacts/id/' + userId
+      console.log(url)
       return $http.get(url)
     }
 
     function removeContact (userId) {
       console.log(userId)
-      var url = '/contact/' + userId
+      let url = '/contact/' + userId
       return $http.delete(url)
     }
 
@@ -31,9 +31,12 @@ angular.module('Wabout')
       return $http.post(url, data)
     }
 
-    function submitContact (username, contactName) {
+    function addContact (username, contactName) {
+      console.log('add contact service')
       let data = {contactName}
       let url = '/contact/' + username
+      console.log(data)
+      console.log(url)
       return $http.post(url, data)
     }
 
@@ -50,7 +53,7 @@ angular.module('Wabout')
       getContactsByUserId,
       removeContact,
       submitLogin,
-      submitContact,
+      addContact,
       updatePrivacy
     }
   })

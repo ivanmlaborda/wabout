@@ -14,12 +14,12 @@ const getContactsById = require('./handlers/contacts/handlerGetContactsByUserId'
 
 router.post('/auth/login/', passport.authenticate('local', { session: false }), login)
 router.post('/auth/register/', register)
-router.get('/user/:username', getUserId)
-router.get('/user/id/:userId', getUser)
-router.post('/contact/:username', newContact)
-router.post('/contact/privacy/:username', updateContact)
-router.delete('/contact/:id', removeContact)
-router.get('/contacts/name/:username', getContacts)
-router.get('/contacts/id/:userId', getContactsById)
+router.get('/user/:username', passport.authenticate('jwt', { session: false }), getUserId)
+router.get('/user/id/:userId', passport.authenticate('jwt', { session: false }), getUser)
+router.post('/contact/:username', passport.authenticate('jwt', { session: false }), newContact)
+router.post('/contact/privacy/:username', passport.authenticate('jwt', { session: false }), updateContact)
+router.delete('/contact/:id', passport.authenticate('jwt', { session: false }), removeContact)
+router.get('/contacts/name/:username', passport.authenticate('jwt', { session: false }), getContacts)
+router.get('/contacts/id/:userId', passport.authenticate('jwt', { session: false }), getContactsById)
 
 module.exports = router
