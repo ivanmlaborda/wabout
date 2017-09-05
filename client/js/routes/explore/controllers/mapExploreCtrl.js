@@ -8,6 +8,8 @@
       $location.path('/auth/login')
     }
 
+    const self = this
+
     const username = $rootScope.loggedUser
     console.log(username)
 
@@ -16,8 +18,6 @@
     $scope.sync = true
     $scope.share = false
     $scope.markers = []
-
-    console.log('mapExploreCtrl Loaded')
 
     DataService.getUserIdByUserName(username)
       .then((userId) => $scope.userId = userId.data._id)
@@ -151,7 +151,7 @@
         label: {
           message: `${name}`,
           options: {
-            // noHide: true
+            noHide: true
           }
         },
         icon: {
@@ -194,20 +194,20 @@
       }
     }, 2000)
 
-    $scope.shareLocation = () => {
+    self.shareLocation = () => {
       $scope.sync = true
       $scope.share = true
       console.log('Some users can track you')
     }
-    $scope.hideLocation = () => {
+    self.hideLocation = () => {
       $scope.share = false
       console.log('Any user can track you')
     }
-    $scope.syncLocation = () => {
+    self.syncLocation = () => {
       $scope.sync = true
       console.log('Your position is sync')
     }
-    $scope.unSyncLocation = () => {
+    self.unSyncLocation = () => {
       $scope.sync = false
       $scope.share = false
       console.log('Your position is not sync. You can not view your position in the map or be tracked by any user')
