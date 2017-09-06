@@ -31,7 +31,7 @@ function updateContact (req, res) {
       res.send({ result: 'OK', message: 'privacy settings updated successfully' })
     })
     .catch(error => {
-      res.send({ result: 'KO', message: 'an error happened updating privacy settings', error })
+      res.status(500).send({ result: 'KO', message: 'an error happened updating privacy settings', error })
     })
 }
 

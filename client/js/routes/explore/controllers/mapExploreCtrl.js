@@ -197,20 +197,20 @@
     self.shareLocation = () => {
       $scope.sync = true
       $scope.share = true
-      toastr.success(`Some users can track you ${username}`)
+      toastr.info(`Some users can track you ${username}`)
     }
     self.hideLocation = () => {
       $scope.share = false
-      toastr.success(`Some users can track you ${username}`)
+      toastr.info(`Anyone can track you ${username}`)
     }
     self.syncLocation = () => {
       $scope.sync = true
-      toastr.success(`Your positioning is sync`)
+      toastr.info(`Your positioning is sync`)
     }
     self.unSyncLocation = () => {
       $scope.sync = false
       $scope.share = false
-      toastr.success(`Your position is not sync. You can not view your position in the map or be tracked by any user`)
+      toastr.info(`Your position is not sync. You can not view your position in the map or be tracked by any user`)
     }
 
   }

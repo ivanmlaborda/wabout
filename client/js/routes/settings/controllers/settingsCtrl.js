@@ -1,7 +1,7 @@
 /* global angular */
 (function () {
   'use strict'
-  function settingsCtrl ($rootScope, DataService, $route, AuthService, $location) {
+  function settingsCtrl ($rootScope, DataService, $route, AuthService, $location, toastr) {
 
     if (!AuthService.isLoggedIn()) {
       $location.path('/login')
@@ -45,10 +45,8 @@
       console.log('submit')
       console.log(self.granteds.contacts)
       DataService.updatePrivacy(username, self.granteds.contacts)
-        .then(data => console.log(data.data.message))
-        // .then(() => {
-        //   $route.reload()
-        // })
+        .then(() => toastr.success(`privacy settings updated successfully`))
+        .catch(() => toastr.error(`an error happens updating privacy settings`))
     }
   }
   angular

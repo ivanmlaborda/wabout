@@ -24,7 +24,7 @@
           $route.reload()
           toastr.success(`${contactName} has been properly added`)
         })
-        .catch(() => toastr.error(`${contactName} does not exist in our DB`))
+        .catch(() => toastr.warning(`${contactName} does not exist in our DB`))
     }
 
     DataService.getUserIdByUserName(username)
