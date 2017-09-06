@@ -303,3 +303,15 @@ html, body {
   .settings-container form button {
     font-weight: bold;
     color: white; }
+
+/* --------------------- toastr --------------------------------*/
+.toast {
+  font-weight: bold;
+  font-size: 18px; }
+
+.toast-top-center {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }

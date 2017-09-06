@@ -2,7 +2,7 @@
 (function() {
   'use strict'
 
-  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService, AuthService, $location) {
+  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService, AuthService, $location, toastr) {
 
     if (!AuthService.isLoggedIn()) {
       $location.path('/auth/login')
@@ -139,6 +139,7 @@
     }
 
     $scope.addUsersMarkers = function(lat, lng, id, name) {
+      toastr.success(`${$rootScope.loggedUser} is sharing location to you`)
       $scope.markers = $scope.markers.filter((userMarker) => {
         return userMarker.id !== id
       })
@@ -197,20 +198,20 @@
     self.shareLocation = () => {
       $scope.sync = true
       $scope.share = true
-      console.log('Some users can track you')
+      toastr.success(`Some users can track you ${username}`)
     }
     self.hideLocation = () => {
       $scope.share = false
-      console.log('Any user can track you')
+      toastr.success(`Some users can track you ${username}`)
     }
     self.syncLocation = () => {
       $scope.sync = true
-      console.log('Your position is sync')
+      toastr.success(`Your positioning is sync`)
     }
     self.unSyncLocation = () => {
       $scope.sync = false
       $scope.share = false
-      console.log('Your position is not sync. You can not view your position in the map or be tracked by any user')
+      toastr.success(`Your position is not sync. You can not view your position in the map or be tracked by any user`)
     }
 
   }
