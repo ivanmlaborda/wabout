@@ -17,9 +17,12 @@ angular.module('Wabout')
       return $http.get(url)
     }
 
-    function removeContact (userId) {
-      let url = '/contact/' + userId
-      return $http.delete(url)
+    function removeContact (username, contactId) {
+      let data = {contactId}
+      let url = '/contact/' + username
+      console.log(url)
+      console.log(data)
+      return $http.put(url, data)
     }
 
     function submitLogin (username) {

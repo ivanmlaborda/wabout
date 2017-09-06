@@ -21,7 +21,7 @@ function updateContact (req, res) {
         const queryToUpdate = { username, 'contacts.userId': sContactId }
         const bShallIShare = grantedContacts.includes(sContactId)
         return User
-            .update(queryToUpdate, { 'contacts.$.shareTo': bShallIShare })
+                .update(queryToUpdate, { 'contacts.$.shareTo': bShallIShare })
       })
 
       return Promise.all(aPromisesUpdate)

@@ -14,7 +14,6 @@
     const username = $rootScope.loggedUser
     console.log(username)
 
-
     self.addContact = (e) => {
       e.preventDefault()
       console.log('submit')
@@ -34,7 +33,18 @@
         console.log(self.contacts)
       })
 
-    // const removeContact = (userId) => DataService.removeContact(userId)
+    self.removeContact = (e, contactId, contactName) => {
+      e.preventDefault()
+      console.log('submit')
+      console.log(contactId)
+      console.log(contactName)
+      DataService.removeContact(username, contactId)
+      .then(() => {
+        $route.reload()
+        toastr.success(`${contactName} has been properly deleted`)
+      })
+      .catch(() => toastr.warning(`a problem happens trying to delete ${contactName}`))
+    }
   }
   angular
     .module('Wabout')

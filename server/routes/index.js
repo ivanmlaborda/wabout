@@ -18,7 +18,7 @@ router.get('/user/:username', passport.authenticate('jwt', { session: false }), 
 router.get('/user/id/:userId', passport.authenticate('jwt', { session: false }), getUser)
 router.post('/contact/:username', passport.authenticate('jwt', { session: false }), newContact)
 router.post('/contact/privacy/:username', passport.authenticate('jwt', { session: false }), updateContact)
-router.delete('/contact/:id', passport.authenticate('jwt', { session: false }), removeContact)
+router.put('/contact/:username', passport.authenticate('jwt', { session: false }), removeContact)
 router.get('/contacts/name/:username', passport.authenticate('jwt', { session: false }), getContacts)
 router.get('/contacts/id/:userId', passport.authenticate('jwt', { session: false }), getContactsById)
 
