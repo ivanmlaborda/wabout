@@ -26,7 +26,7 @@ function newContact (req, res) {
             res.send({ result: 'OK', message: 'contact added to user successfully' })
           })
           .catch(error => {
-            res.send({ result: 'KO', message: 'an error happened on adding a contact to user', error })
+            res.status(500).send({ result: 'KO', message: 'an error happened on adding a contact to user', error })
           })
       }
     })

@@ -139,7 +139,6 @@
     }
 
     $scope.addUsersMarkers = function(lat, lng, id, name) {
-      toastr.success(`${$rootScope.loggedUser} is sharing location to you`)
       $scope.markers = $scope.markers.filter((userMarker) => {
         return userMarker.id !== id
       })

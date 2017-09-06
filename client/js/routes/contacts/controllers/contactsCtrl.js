@@ -1,7 +1,7 @@
 /* global angular */
 (function () {
   'use strict'
-  function contactsCtrl ($rootScope, DataService, $route, AuthService, $location) {
+  function contactsCtrl ($rootScope, DataService, $route, AuthService, $location, toastr) {
 
     if (!AuthService.isLoggedIn()) {
       $location.path('/login')
@@ -22,7 +22,9 @@
       DataService.addContact(username, contactName)
         .then(() => {
           $route.reload()
+          toastr.success(`${contactName} has been properly added`)
         })
+        .catch(() => toastr.error(`${contactName} does not exist in our DB`))
     }
 
     DataService.getUserIdByUserName(username)
@@ -31,11 +33,6 @@
         self.contacts = data.data
         console.log(self.contacts)
       })
-
-      // .then(data => data.contacts.forEach(contact => self.contacts.push(contact.id)))
-      // .then(() => console.log(self.contacts))
-
-      // .then(data => console.log(self.contacts))
 
     // const removeContact = (userId) => DataService.removeContact(userId)
   }
