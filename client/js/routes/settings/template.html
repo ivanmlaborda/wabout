@@ -1,19 +1,19 @@
-<div ng-controller="settingsCtrl" class="settings-container">
+<div class="settings-container">
   <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
       <h2>
         Privacy settings
       </h2>
       <h4>Choose Who can track you</h4>
-      <form ng-submit="updatePrivacy($event)">
+      <form ng-submit="ctrl.updatePrivacy($event)">
         <div class="panel panel-default">
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="contact in contacts">
-              {{contact.userId.userName}}
+            <li class="list-group-item" ng-repeat="contact in ctrl.contacts">
+              {{contact.username}}
               <!-- <input type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/> -->
               <div class="material-switch pull-right">
-                <input id="{{contact.userId._id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="granteds.contacts" checklist-value="contact.userId._id"/>
-                <label for="{{contact.userId._id}}" class="label-success"></label>
+                <input id="{{contact.id}}" type="checkbox" ng-checked="contact.shareTo" checklist-model="ctrl.granteds.contacts" checklist-value="contact.id"/>
+                <label for="{{contact.id}}" class="label-success"></label>
               </div>
             </li>
           </ul>

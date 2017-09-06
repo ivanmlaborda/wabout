@@ -5,7 +5,10 @@
   .config(function ($routeProvider) {
     $routeProvider
     .when('/explore', {
-      templateUrl: 'js/routes/explore/template.html'
+      templateUrl: 'js/routes/explore/template.html',
+      controller: 'mapExploreCtrl',
+      controllerAs: 'ctrl',
+      secure: true
     })
   })
 

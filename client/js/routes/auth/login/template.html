@@ -1,4 +1,4 @@
-<div ng-controller="formLoginCtrl" class="login-container">
+<div class="login-container">
   <div class="container">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <div class="panel panel-success login">
@@ -6,13 +6,13 @@
           <h3 class="panel-title">Please Log in</h3>
         </div>
         <div class="panel-body text-center">
-          <form ng-submit="submit()">
+          <form ng-submit="ctrl.login($event)">
             <fieldset class="block-center">
               <div class="form-group">
-                <input placeholder="userName" ng-model="userName" name="userName" type="text" required="required" autofocus="autofocus" class="form-control" />
+                <input placeholder="username" ng-model="ctrl.username" id="username" name="userName" type="text" required="required" autofocus="autofocus" class="form-control" />
               </div>
               <div class="form-group">
-                <input placeholder="Password" name="password" type="password" value="" required="required" class="form-control" />
+                <input placeholder="Password" ng-model="ctrl.password" id="password" name="password" type="password" value="" required="required" class="form-control" />
               </div>
               <button class="btn btn-lg btn-success btn-block">Send</button>
               <p>Need an account? <a href="#!/auth/register">Register</a></p>

@@ -1,17 +1,18 @@
 /* global angular */
 (function () {
   'use strict'
-  function formLoginCtrl ($rootScope, $scope, DataService, $window) {
-    console.log('formLoginCtrl Loaded')
-
-    $scope.submit = function() {
-      const {userName} = $scope
-      DataService.submitLogin(userName)
-        .then((data) => {
-          console.log(data)
-          $rootScope.userName = data.data
-          $window.location.href = '/#!/explore'
-        })
+  function formLoginCtrl (AuthService, toastr, $location) {
+    this.login = (e) => {
+      e.preventDefault()
+      AuthService.login(this.username, this.password)
+      .then(success => {
+        if (success) {
+          toastr.success('succesfully logged')
+          $location.path('/explore')
+        } else {
+          toastr.error('try again!')
+        }
+      })
     }
 
 

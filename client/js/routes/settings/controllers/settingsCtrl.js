@@ -1,36 +1,54 @@
 /* global angular */
 (function () {
   'use strict'
-  function settingsCtrl ($scope, $rootScope, DataService) {
-    // OJO SOLO PARA DESARROLLO FRONT!
-    $rootScope.logged = true
+  function settingsCtrl ($rootScope, DataService, $route, AuthService, $location) {
 
-    console.log('settingsCtrl Loaded')
-    $scope.contacts = []
-    $scope.granteds = {
+    if (!AuthService.isLoggedIn()) {
+      $location.path('/login')
+    }
+
+    const self = this
+
+    self.contacts = []
+
+    const username = $rootScope.loggedUser
+    console.log(username)
+
+    self.granteds = {
       contacts: []
     }
-    console.log($scope.granteds)
+    console.log(self.granteds)
 
-    DataService.getUserIdByUserName($rootScope.userName)
+    DataService.getUserIdByUserName(username)
       .then(data => DataService.getContactsByUserId(data.data._id))
       .then(data => {
         console.log(data)
-        data.data.contacts.forEach(contact => $scope.contacts.push(contact))})
-      .then(() => $scope.contacts.forEach(contact => {
+        data.data.forEach(contact => self.contacts.push(contact))
+        console.log(self.contacts)
+      })
+      .then(() => self.contacts.forEach(contact => {
         if (contact.shareTo) {
-          $scope.granteds.contacts.push(contact.userId._id)
+          self.granteds.contacts.push(contact.id)
         }
       }))
-      .then(console.log($scope.contacts))
-      .then(console.log($scope.granteds.contacts))
 
-    $scope.updatePrivacy = (event) => {
+      // .then(() => self.contacts.forEach(contact => {
+      //   if (contact.shareTo) {
+      //     self.granteds.contacts.push(contact.userId._id)
+      //   }
+      // }))
+      // .then(console.log(self.contacts))
+      // .then(console.log(self.granteds.contacts))
+
+    self.updatePrivacy = (event) => {
       event.preventDefault
       console.log('submit')
-      console.log($scope.granteds.contacts)
-      DataService.updatePrivacy($rootScope.userName, $scope.granteds.contacts)
+      console.log(self.granteds.contacts)
+      DataService.updatePrivacy(username, self.granteds.contacts)
         .then(data => console.log(data.data.message))
+        // .then(() => {
+        //   $route.reload()
+        // })
     }
   }
   angular

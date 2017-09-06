@@ -6,6 +6,11 @@ const sio = require('socket.io')
 const http = require('http')
 const getBroadContacts = require('./modules/getBroadContacts.js')
 
+require('dotenv').load()
+
+// global.__base = path.join(__dirname, '/server')
+global.__base = path.join(__dirname)
+
 const app = express()
 const server = http.createServer(app)
 const io = sio.listen(server)
@@ -37,19 +42,18 @@ io.on('connection', function(socket) {
   })
   socket.on('setId', (userId) => {
     idList[userId] = socket.id
+    console.log('idList')
     console.log(idList)
   })
 
   socket.on('userCoords', function(data) {
+    console.log('userCoords arrive')
     getBroadContacts(data.name)
       .then(contacts => {
         console.log(`broadContacts ${contacts}`)
         data.id = findKey(idList, socket.id)
         console.log(data.id)
         io.emit('serverMsg', 'Data arrive to server')
-        // io.sockets.emit('updateCoords', data)
-        // bonaaaaa a sota
-        // socket.broadcast.emit('updateCoords', data)
         contacts.forEach(contact => socket.to(idList[contact]).emit('updateCoords', data))
 
       })

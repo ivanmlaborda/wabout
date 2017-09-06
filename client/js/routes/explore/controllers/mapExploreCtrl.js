@@ -2,19 +2,24 @@
 (function() {
   'use strict'
 
-  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService) {
-    // OJO SOLO PARA DESARROLLO FRONT
-    $rootScope.logged = true
-    // $rootScope.userName = 'ivan'
+  function mapExploreCtrl($scope, $rootScope, GeolocateService, DataService, AuthService, $location) {
+
+    if (!AuthService.isLoggedIn()) {
+      $location.path('/auth/login')
+    }
+
+    const self = this
+
+    const username = $rootScope.loggedUser
+    console.log(username)
+
     $scope.userId = ''
 
     $scope.sync = true
     $scope.share = false
     $scope.markers = []
 
-    console.log('mapExploreCtrl Loaded')
-
-    DataService.getUserIdByUserName($rootScope.userName)
+    DataService.getUserIdByUserName(username)
       .then((userId) => $scope.userId = userId.data._id)
       .then((userId) => socket.emit('setId', userId))
 
@@ -146,7 +151,7 @@
         label: {
           message: `${name}`,
           options: {
-            // noHide: true
+            noHide: true
           }
         },
         icon: {
@@ -177,7 +182,7 @@
         GeolocateService.getGeolocation()
           .then(userCoords => {
             $scope.userCoords = userCoords
-            $scope.userCoords.name = $rootScope.userName
+            $scope.userCoords.name = username
 
             if ($scope.share) {
               socket.emit('userCoords', $scope.userCoords)
@@ -189,20 +194,20 @@
       }
     }, 2000)
 
-    $scope.shareLocation = () => {
+    self.shareLocation = () => {
       $scope.sync = true
       $scope.share = true
       console.log('Some users can track you')
     }
-    $scope.hideLocation = () => {
+    self.hideLocation = () => {
       $scope.share = false
       console.log('Any user can track you')
     }
-    $scope.syncLocation = () => {
+    self.syncLocation = () => {
       $scope.sync = true
       console.log('Your position is sync')
     }
-    $scope.unSyncLocation = () => {
+    self.unSyncLocation = () => {
       $scope.sync = false
       $scope.share = false
       console.log('Your position is not sync. You can not view your position in the map or be tracked by any user')

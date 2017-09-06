@@ -1,29 +1,43 @@
 /* global angular */
 (function () {
   'use strict'
-  function contactsCtrl ($scope, $rootScope, DataService, $route) {
-    // OJO SOLO PARA DESARROLLO FRONT!
-    $rootScope.logged = true
-    console.log('contactsCtrl Loaded')
-    // $rootScope.userName = 'ivan'
+  function contactsCtrl ($rootScope, DataService, $route, AuthService, $location) {
 
-    $scope.contacts = []
+    if (!AuthService.isLoggedIn()) {
+      $location.path('/login')
+    }
 
-    $scope.submit = () => {
-      // console.log('submit')
-      const {userName} = $rootScope
-      const {contactName} = $scope
-      DataService.submitContact(userName, contactName)
+    const self = this
+
+    self.contacts = []
+
+    const username = $rootScope.loggedUser
+    console.log(username)
+
+
+    self.addContact = (e) => {
+      e.preventDefault()
+      console.log('submit')
+      const {contactName} = self
+      DataService.addContact(username, contactName)
         .then(() => {
           $route.reload()
         })
     }
 
-    DataService.getUserIdByUserName($rootScope.userName)
+    DataService.getUserIdByUserName(username)
       .then(data => DataService.getContactsByUserId(data.data._id))
-      .then(data => data.data.contacts.forEach(key => $scope.contacts.push(key.userId)))
+      .then(data => {
+        self.contacts = data.data
+        console.log(self.contacts)
+      })
 
-    const removeContact = (userId) => DataService.removeContact(userId)
+      // .then(data => data.contacts.forEach(contact => self.contacts.push(contact.id)))
+      // .then(() => console.log(self.contacts))
+
+      // .then(data => console.log(self.contacts))
+
+    // const removeContact = (userId) => DataService.removeContact(userId)
   }
   angular
     .module('Wabout')

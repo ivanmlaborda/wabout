@@ -1,45 +1,45 @@
 angular.module('Wabout')
   .factory('DataService', function ($http) {
 
-    function getUserIdByUserName (userName) {
-      console.log(userName)
-      var url = '/user/' + userName
+    function getUserIdByUserName (username) {
+      let url = '/user/' + username
       return $http.get(url)
     }
 
     function getUserById (userId) {
-      console.log(userId)
-      var url = '/user/id/' + userId
+      let url = '/user/id/' + userId
       return $http.get(url)
     }
 
     function getContactsByUserId (userId) {
-      console.log(userId)
-      var url = '/contacts/id/' + userId
+      let url = '/contacts/id/' + userId
+      console.log(url)
       return $http.get(url)
     }
 
     function removeContact (userId) {
-      console.log(userId)
-      var url = '/contact/' + userId
+      let url = '/contact/' + userId
       return $http.delete(url)
     }
 
-    function submitLogin (userName) {
-      let data = {userName}
+    function submitLogin (username) {
+      let data = {username}
       const url = '/auth/login'
       return $http.post(url, data)
     }
 
-    function submitContact (userName, contactName) {
+    function addContact (username, contactName) {
+      console.log('add contact service')
       let data = {contactName}
-      let url = '/contact/' + userName
+      let url = '/contact/' + username
+      console.log(data)
+      console.log(url)
       return $http.post(url, data)
     }
 
-    function updatePrivacy (userName, grantedContacts) {
+    function updatePrivacy (username, grantedContacts) {
       let data = {grantedContacts}
-      let url = '/contact/privacy/' + userName
+      let url = '/contact/privacy/' + username
       console.log(data)
       return $http.post(url, data)
     }
@@ -50,7 +50,7 @@ angular.module('Wabout')
       getContactsByUserId,
       removeContact,
       submitLogin,
-      submitContact,
+      addContact,
       updatePrivacy
     }
   })

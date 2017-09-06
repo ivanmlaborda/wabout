@@ -1,12 +1,12 @@
-<div ng-controller="mapExploreCtrl" class="map-container">
+<div class="map-container">
   <leaflet class="map" lf-center="userView" defaults="defaults" markers="markers" layers="layers">
     <div class="custom-map-buttons">
       <div class="btn-group-vertical" role="group">
-        <button type="button" class="btn btn-success sync-button" ng-click="syncLocation()" ng-hide="sync">Sync</button>
-        <button type="button" class="btn btn-success sync-button" ng-click="unSyncLocation()" ng-show="sync">UnSync</button>
-        <button type="button" class="btn btn-warning emit-button" ng-click="shareLocation()" ng-hide="share">Share</button>
-        <button type="button" class="btn btn-success emit-button" ng-click="hideLocation()" ng-show="share">Hide me</button>
-        <button type="button" class="btn btn-success emit-button" ng-click="centerMe()">Center me</button>
+        <button type="button" class="btn btn-success sync-button" ng-click="ctrl.syncLocation()" ng-hide="sync">Sync</button>
+        <button type="button" class="btn btn-success sync-button" ng-click="ctrl.unSyncLocation()" ng-show="sync">UnSync</button>
+        <button type="button" class="btn btn-warning emit-button" ng-click="ctrl.shareLocation()" ng-hide="share">Share</button>
+        <button type="button" class="btn btn-success emit-button" ng-click="ctrl.hideLocation()" ng-show="share">Hide me</button>
+        <button type="button" class="btn btn-success emit-button" ng-click="ctrl.centerMe()">Center me</button>
       </div>
     </div>
   </leaflet>

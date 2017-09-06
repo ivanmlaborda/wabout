@@ -1,4 +1,4 @@
-<div class="header-container">
+<div class="header-container" ng-controller="loggedHeaderCtrl">
   <div class="header-bar">
 
     <div>
@@ -6,8 +6,8 @@
     </div>
 
     <div>
-      <a class="userTag">{{userName}}</a>
-      <a class="signout-button" href="/"><i class="fa fa-sign-out"></i></a>
+      <a class="userTag">{{loggedUser}}</a>
+      <a class="signout-button" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
     </div>
 
   </div>

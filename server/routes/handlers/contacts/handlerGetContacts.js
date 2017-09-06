@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 function getContacts (req, res) {
-  const { userName } = req.params
+  const { username } = req.params
 
   User
-    .find({userName})
+    .find({username})
     .populate('contacts.userId')
     .then(contacts =>{
       res.json(contacts)

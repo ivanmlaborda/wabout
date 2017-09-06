@@ -5,7 +5,10 @@
   .config(function ($routeProvider) {
     $routeProvider
     .when('/settings', {
-      templateUrl: 'js/routes/settings/template.html'
+      templateUrl: 'js/routes/settings/template.html',
+      controller: 'settingsCtrl',
+      controllerAs: 'ctrl',
+      secure: true
     })
   })
 
