@@ -16,8 +16,8 @@
       $rootScope.loggedUser = tokenPayload.username
     }
 
-    function register (username, password) {
-      return $http.post('/auth/register', {username, password})
+    function register (username, password, email) {
+      return $http.post('/auth/register', {username, password, email})
                 .then(res => res.data)
     }
 

@@ -5,14 +5,11 @@ const collection = 'users'
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 const UserSchema = new mongoose.Schema({
-  // userName: {
-  //   type: String,
-  //   required: true
-  // },
-  // password: {
-  //   type: String,
-  //   required: true
-  // },
+  // Default username and password in passport and the documents below
+  email: {
+    type: String,
+    required: true
+  },
   contacts: [{
     userId: {
       type: ObjectId,

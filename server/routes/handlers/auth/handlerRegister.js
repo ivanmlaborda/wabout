@@ -18,9 +18,9 @@ const path = require('path')
 const User = require(path.join(__base, 'models/User'))
 
 function handleRegister (req, res) {
-  const { username, password } = req.body
+  const { username, password, email } = req.body
 
-  const user = new User({username})
+  const user = new User({username, email})
 
   User.register(user, password, err => {
     if (err) {
