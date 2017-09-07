@@ -12,11 +12,9 @@
     self.contacts = []
 
     const username = $rootScope.loggedUser
-    console.log(username)
 
     self.addContact = (e) => {
       e.preventDefault()
-      console.log('submit')
       const {contactName} = self
       DataService.addContact(username, contactName)
         .then(() => {
@@ -30,14 +28,10 @@
       .then(data => DataService.getContactsByUserId(data.data._id))
       .then(data => {
         self.contacts = data.data
-        console.log(self.contacts)
       })
 
     self.removeContact = (e, contactId, contactName) => {
       e.preventDefault()
-      console.log('submit')
-      console.log(contactId)
-      console.log(contactName)
       DataService.removeContact(username, contactId)
       .then(() => {
         $route.reload()

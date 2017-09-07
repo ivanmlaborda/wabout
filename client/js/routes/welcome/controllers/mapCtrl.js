@@ -2,7 +2,6 @@
 (function () {
   'use strict'
   function mapCtrl ($rootScope) {
-    console.log('mapCtrl Loaded')
 
     //OJO SOLO PARA DESARROLLO FRONT!
     $rootScope.logged = false

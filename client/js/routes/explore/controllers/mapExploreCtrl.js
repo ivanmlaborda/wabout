@@ -11,7 +11,6 @@
     const self = this
 
     const username = $rootScope.loggedUser
-    console.log(username)
 
     $scope.userId = ''
 
@@ -30,14 +29,14 @@
     })
 
     socket.on('serverMsg', function(data) {
-      console.log(data)
+      // console.log(data)
     })
 
     socket.on('updateCoords', function(coordData) {
-      console.log('Geolocation received from contact!')
-      console.log(coordData)
+      // console.log('Geolocation received from contact!')
+      // console.log(coordData)
       $scope.addUsersMarkers(coordData.lat, coordData.lng, coordData.id, coordData.name)
-      console.log(coordData)
+      // console.log(coordData)
     })
 
     // LEAFLET MAP
