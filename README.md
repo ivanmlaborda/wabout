@@ -1,3 +1,5 @@
+# [WABOUT](https://wabout.herokuapp.com)
+##### DEMO [https://wabout.herokuapp.com](https://wabout.herokuapp.com)
 [![NodeJS](https://github.com/MarioTerron/logo-images/blob/master/logos/nodejs.png)](https://nodejs.org/)
 [![ExpressJS](https://github.com/MarioTerron/logo-images/blob/master/logos/expressjs.png)](http://expressjs.com///)
 [![npm](https://github.com/MarioTerron/logo-images/blob/master/logos/npm.png)](https://www.npmjs.com/)
@@ -14,9 +16,5 @@
 [![LeafletJS](http://ivansanchez.github.io/leaflet-vs-openlayers-slides/img/leaflet.svg)](http://leafletjs.com)
 
 
-# [WABOUT](https://wabout.herokuapp.com) 🗺
-
 A mobile webapp to geolocate your contacts in realtime.
-This project has been developed as a final project in Skylab CodersBootcamp
-
-#### [DEMO app](https://wabout.herokuapp.com)
+This project has been developed as a final project in Skylab Coders Academy Bootcamp
