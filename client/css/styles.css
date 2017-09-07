@@ -37,6 +37,10 @@ html, body {
     align-items: center;
     justify-content: space-between;
     vertical-align: middle; }
+    .header-container .header-bar .welcome-link {
+      border-width: 0px;
+      background-color: transparent;
+      box-shadow: none; }
     .header-container .header-bar i.logo {
       display: inline-block;
       font-family: 'Pacifico';

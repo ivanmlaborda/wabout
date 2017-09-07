@@ -16,7 +16,11 @@
     align-items: center;
     justify-content: space-between;
     vertical-align: middle;
-
+    .welcome-link {
+      border-width: 0px;
+      background-color: transparent;
+      box-shadow: none;
+    }
     i.logo {
       display: inline-block;
       font-family: 'Pacifico';
