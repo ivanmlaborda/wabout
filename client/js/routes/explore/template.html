@@ -4,8 +4,8 @@
       <div class="btn-group-vertical custom-leaflet-group" role="group">
         <button type="button" class="btn custom-leaflet-button" ng-click="ctrl.unSyncLocation()" ng-show="sync">UnSync</button>
         <button type="button" class="btn custom-leaflet-button" ng-click="ctrl.syncLocation()" ng-hide="sync">Sync</button>
-        <button type="button" class="btn custom-leaflet-button" ng-click="ctrl.shareLocation()" ng-hide="share">Share</button>
-        <button type="button" class="btn custom-leaflet-button" ng-click="ctrl.hideLocation()" ng-show="share">Hide me</button>
+        <button type="button" class="btn custom-leaflet-button share-btn" ng-click="ctrl.shareLocation()" ng-hide="share">Share</button>
+        <button type="button" class="btn custom-leaflet-buttons share-btn" ng-click="ctrl.hideLocation()" ng-show="share">Hide me</button>
         <button type="button" class="btn custom-leaflet-button" ng-click="centerMe()">Center me</button>
       </div>
     </div>

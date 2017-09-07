@@ -138,7 +138,7 @@ html, body {
     top: 10px;
     left: 10px;
     z-index: 20;
-    opacity: 0.7; }
+    opacity: 0.9; }
     .map-container .custom-map-buttons .custom-leaflet-group {
       color: #333;
       border-radius: 6px;
@@ -146,8 +146,14 @@ html, body {
       border: 1px solid #ccc;
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65); }
     .map-container .custom-map-buttons .custom-leaflet-button {
-      background: #fff;
       margin: 0px;
+      border-radius: 6px;
+      font-weight: bold;
+      background: #fff; }
+    .map-container .custom-map-buttons .share-btn {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      background: #fff;
       font-weight: bold; }
   .map-container .map {
     height: 100%;
