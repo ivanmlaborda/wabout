@@ -1,4 +1,0 @@
-mongoexport -d wabout -c users --jsonArray -o users.json
-
-
-

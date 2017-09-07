@@ -2,9 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const bodyParser = require('body-parser')
-const sio = require('socket.io')
 const http = require('http')
-const getBroadContacts = require('./modules/getBroadContacts.js')
+const configSocketIo = require('./config/socketio/configSocketIo.js')
 
 require('dotenv').load()
 
@@ -13,7 +12,6 @@ global.__base = path.join(__dirname)
 
 const app = express()
 const server = http.createServer(app)
-const io = sio.listen(server)
 const pathPublic = path.join(process.cwd(), 'client')
 
 const routesApp = require('./routes/')
@@ -31,47 +29,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
-let usersConnected = []
-let idList = {}
-
-io.on('connection', function(socket) {
-  console.log(`Client w/ id ${socket.id} connected`)
-  socket.on('join', function(userId) {
-    console.log(userId)
-    io.emit('serverMsg', `You are now connected to the server`)
-  })
-  socket.on('setId', (userId) => {
-    idList[userId] = socket.id
-    console.log('idList')
-    console.log(idList)
-  })
-
-  socket.on('userCoords', function(data) {
-    console.log('userCoords arrive')
-    getBroadContacts(data.name)
-      .then(contacts => {
-        console.log(`broadContacts ${contacts}`)
-        data.id = findKey(idList, socket.id)
-        console.log(data.id)
-        io.emit('serverMsg', 'Data arrive to server')
-        contacts.forEach(contact => socket.to(idList[contact]).emit('updateCoords', data))
-
-      })
-
-  })
-})
-
-const findKey = (obj, value) => {
-  let key = null
-  for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      if (obj[prop] === value) {
-        key = prop
-      }
-    }
-  }
-  return key
-}
+configSocketIo(server, app)
 
 app.use(routesApp)
 
