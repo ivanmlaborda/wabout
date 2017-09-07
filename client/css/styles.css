@@ -139,9 +139,15 @@ html, body {
     left: 10px;
     z-index: 20;
     opacity: 0.7; }
-    .map-container .custom-map-buttons .sync-button {
-      font-weight: bold; }
-    .map-container .custom-map-buttons .emit-button {
+    .map-container .custom-map-buttons .custom-leaflet-group {
+      color: #333;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65); }
+    .map-container .custom-map-buttons .custom-leaflet-button {
+      background: #fff;
+      margin: 0px;
       font-weight: bold; }
   .map-container .map {
     height: 100%;
