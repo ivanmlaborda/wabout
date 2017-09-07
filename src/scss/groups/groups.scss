@@ -6,6 +6,14 @@
     background-color: $pr-white-broke;
     padding-top: 50px;
     padding-bottom: 75px;
+    .banner {
+      background-color: $pr-orange-banner;
+      padding: 25px 50px;
+      border-radius: 7px;
+      color: white;
+      font-size: 22px;
+      text-shadow: 0 1px 1px #4d4d4d;
+    }
   .panel {
     border: 1px solid $pr-light-gray;
     // -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.55);

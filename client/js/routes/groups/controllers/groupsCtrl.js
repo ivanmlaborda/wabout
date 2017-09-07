@@ -1,11 +1,10 @@
 /* global angular */
 (function () {
   'use strict'
-  function groupsCtrl ($rootScope, toastr, $location, AuthService) {
+  function groupsCtrl ($rootScope, $location, AuthService) {
     if (!AuthService.isLoggedIn()) {
       $location.path('/auth/login')
     }
-    const groupsToast = toastr.info('Groups will be available in next release!')
 
   }
   angular

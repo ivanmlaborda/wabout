@@ -239,6 +239,13 @@ html, body {
   padding-bottom: 75px;
   margin-top: 0;
   font-weight: 500; }
+  .groups-container .banner {
+    background-color: #FA6900;
+    padding: 25px 50px;
+    border-radius: 7px;
+    color: white;
+    font-size: 22px;
+    text-shadow: 0 1px 1px #4d4d4d; }
   .groups-container .panel {
     border: 1px solid #D9DADE; }
   .groups-container h2 {
